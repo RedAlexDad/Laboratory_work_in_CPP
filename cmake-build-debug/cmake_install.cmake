@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Papin/CLionProjects/Programming_on_class_and_template
+# Install script for directory: D:/Clion/Laboratory_work_in_CPP
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Papin/CLionProjects/Programming_on_class_and_template/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Clion/Laboratory_work_in_CPP/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

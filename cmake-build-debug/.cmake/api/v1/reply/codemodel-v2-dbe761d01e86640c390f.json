@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Papin/CLionProjects/Programming_on_class_and_template/cmake-build-debug",
-		"source" : "C:/Users/Papin/CLionProjects/Programming_on_class_and_template"
+		"build" : "D:/Clion/Laboratory_work_in_CPP/cmake-build-debug",
+		"source" : "D:/Clion/Laboratory_work_in_CPP"
 	},
 	"version" : 
 	{

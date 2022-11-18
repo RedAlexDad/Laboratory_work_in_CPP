@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Papin/CLionProjects/Programming_on_class_and_template/cmake-build-debug"
+			"value" : "d:/Clion/Laboratory_work_in_CPP/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -623,7 +623,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Papin/CLionProjects/Programming_on_class_and_template"
+			"value" : "D:/Clion/Laboratory_work_in_CPP"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1239,7 +1239,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Papin/CLionProjects/Programming_on_class_and_template/cmake-build-debug"
+			"value" : "D:/Clion/Laboratory_work_in_CPP/cmake-build-debug"
 		},
 		{
 			"name" : "Programming_on_class_and_template_IS_TOP_LEVEL",
@@ -1263,7 +1263,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Papin/CLionProjects/Programming_on_class_and_template"
+			"value" : "D:/Clion/Laboratory_work_in_CPP"
 		}
 	],
 	"kind" : "cache",
