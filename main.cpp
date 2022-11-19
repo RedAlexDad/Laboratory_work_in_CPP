@@ -1,384 +1,152 @@
-// Practium.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+// RK_Class_04032022.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+
+/*
+Вариант 12
+Составить описание класса Complex для представления комплексных чисел
+с возможностью задания вещественной и мнимой частей числами типа double.
+
+Класс должен содержать:
+1.	Конструктор без параметров, в котором в переменные-члены
+	создаваемого объекта записывается 0.
+
+2.	Конструктор с двумя параметрами.
+
+3.	Метод изменения значений переменных-членов объекта.
+
+4.	Метод вывода на экран значений переменных-членов объекта в виде ”-5.4 + 3.9i”.
+
+
+Написать программу тестирования класса:
+
+1.	Создание объекта без параметров, вывод на экран его переменных-членов.
+
+2.	Создание объекта с параметрами, вывод на экран его переменных-членов.
+
+3.	Создание динамического объекта без параметров, вывод на экран его переменных-членов.
+
+4.	Создание динамического объекта с параметрами, вывод на экран его переменных-членов.
+
+5.	Создать массив из объектов класса c разными значениями переменных-членов.
+
+6.	Найти в массиве объект с максимальной суммой его действительной и мнимой части и вывести его на экран.
+
+*/
+
 
 #include <iostream>
-#include <string>
-#include "MyStack.h"
-#include "MyVector.h"
-#include "MySet.h"
+#include "Complex.h"
 #pragma warning(disable : 4996)
 
 using namespace std;
 
-
-
 int main()
 {
-    system("chcp 65001");
+    system("chcp 1251 > nul");
+
+    // 1.	Создание объекта без параметров, вывод на экран его переменных-членов.
+    cout << "1. Создание объекта без параметров, вывод на экран его переменных-членов." << endl;
+    Complex C1;
+    C1.show();
+
+    // 2.	Создание объекта с параметрами, вывод на экран его переменных - членов.
+    cout << "2. Создание объекта с параметрами, вывод на экран его переменных - членов." << endl;
+    Complex C2(-3.14, 1.352);
+    C2.show();
 
 
-    while (true) {
-        system("cls");
-        cout << "Введите номер пункта для выполнения заданий:" << endl;
-        cout << "№1 Разложение на простые множители целого числа N с применением stack" << endl;
-        cout << "№2 Множество, выполняющее несколько операций над множествами" << endl;
-        cout << "№0 Выход с программы." << endl;
-
-        int sw;
-        cout << "Номер пункта: ";
-        cin >> sw;
-
-        switch (sw)
-        {
-            case 1:
-            {
-                system("cls");
-                cout << "№1 Разложение на простые множители целого числа N с применением stack" << endl;
-
-                cout << "Введите любое целое число для разложения" << endl;
-                cout << "Пример, пусть дан число N = 3960" << endl
-                     << "Разложили его так (в убывающем порядке):\n\t3960 = 11 * 5 * 3 * 3 * 2 * 2 * 2" << endl
-                     << "Разложили его так (в возрастающем порядке):\n\t3960 = 2 * 2 * 2 * 3 * 3 * 5 * 11" << endl;
-                cout << endl;
-
-                int value = NULL;
-                MyStack<int> obj;
-                cout << "Введите любое число для разложения" << endl;
-                cout << "Число: ";
-                cin >> value;
-                cout << endl;
-
-                Multipliers(value, obj);
-
-                MyStack<int> obj1(obj), obj2;
-                obj2 = obj;
-                cout << "Проверка конструктора копирования и перегрузка присваивания" << endl;
-                cout << "obj1(obj): ";
-                obj1.print();
-                cout << "obj2 = obj: ";
-                obj2.print();
-
-                system("pause");
-                break;
-            } case 2:
-            {
-                system("cls");
-                cout << "№2 Множество, выполняющее несколько операций над множествами" << endl;
-
-                MyVector<string> v("Hello!");
-                cout << v << endl;
-                cout << endl;
+    // 3.	Создание динамического объекта без параметров,
+    // вывод на экран его переменных - членов.
+    cout << "3. Создание динамического объекта без параметров, вывод на экран его переменных - членов." << endl;
+    Complex* C3 = new Complex;
+    C3->show();
 
 
-                v.add_element("Привет!");
-                v.add_element("Привет!");
-                v.add_element("Привет!");
-                v.add_element("Привет!");
-                v.add_element("Привет!");
-                cout << "Вектор v: " << v << endl;
-                cout << endl;
+    // 4.	Создание динамического объекта с параметрами,
+    // вывод на экран его переменных - членов.
+    cout << "4. Создание динамического объекта с параметрами, вывод на экран его переменных - членов." << endl;
+    Complex* C4 = new Complex(65.324, -12.454);
+    C4->show();
 
-                v.add_element("Привет!");
-                v.add_element("Привет!");
-                v.add_element("Привет!");
-                cout << "Вектор v: " << v << endl;
-                cout << endl;
+    // 5.	Создать массив из объектов класса
+    // c разными значениями переменных - членов.
+    cout << "5. Создать массив из объектов класса c разными значениями переменных - членов." << endl;
+    int size = 5;
+    srand(time(NULL));
+    Complex* C5 = new Complex[size];
 
-                cout << "find: " << v.find("Привет!") << endl;
-                cout << endl;
+    for (int i = 0; i < size; i++) {
+        // Знакопеременные числа для действительных и мнимых чисел
+        // 0  - отрицательное число, 1 - положительное число
 
-                MyVector<> v1 = v;
-                MyVector<> v2(v);
+        // Для действительных чисел
+        if (rand() % 2 == 1) {
+            C5[i].set_double_number(((double)rand() / (double)(RAND_MAX * rand() % 100)));
+            C5[i].get_double_number();
+        }
+        else {
+            C5[i].set_double_number((-(double)rand() / (double)(RAND_MAX * rand() % 100)));
+            C5[i].get_double_number();
+        }
 
-                cout << "Вектор v1: " << v1 << endl;
-                cout << "Вектор v2(v): " << v2 << endl;
+        // Для мнимых чисел
+        if (rand() % 2 == 1) {
+            C5[i].set_imaginary_numbers(((double)rand() / (double)(RAND_MAX * rand() % 100)));
+            C5[i].get_imaginary_numbers();
+        }
+        else {
+            C5[i].set_imaginary_numbers((-(double)rand() / (double)(RAND_MAX * rand() % 100)));
+            C5[i].get_imaginary_numbers();
+        }
 
-                for (int i = 0; i < MAX_SIZE; i++)
-                    v1.delete_element(0);
-                cout << "Вектор v1: " << v1 << endl;
+        C5[i].show();
+    }
 
-                cout << endl;
-                cout << "==============================================================" << endl;
-                cout << "Множество типа string" << endl;
-                cout << "==============================================================" << endl;
-                cout << endl;
-                system("pause");
+    // 6. Найти в массиве объект с максимальной
+    // суммой его действительной и мнимой части и вывести его на экран.
+    cout << "6. Найти в массиве объект с максимальной суммой его действительной и мнимой части и вывести его на экран." << endl;
+    Complex* C6 = new Complex[size];
 
-                {
-                    MySet<> s("Yes");
-                    MySet<> s1, s2;
+    double* find_max_value = new double[size];
 
-                    s.add_element("Привет!");
-                    s.add_element("No");
-                    char* str = (char*)"Hello!";
-                    s.add_element(str);
-                    cout << s << endl;
-                    cout << "Множество s: " << s << endl;
-                    //cout << endl;
 
-                    s1.add_element("Cat");
-                    s1.add_element("No");
-                    s1.add_element("Привет!");
-                    cout << "Множество s1: " << s1 << endl;
-                    //cout << endl;
+    for (int i = 0; i < size; i++) {
+        // Знакопеременные числа для действительных и мнимых чисел
+        // 0  - отрицательное число, 1 - положительное число
 
-                    s2 = s1 - s;
-                    cout << "Множество s2 = s1 - s: " << s2 << endl;
-                    cout << endl;
+        // Для действительных чисел
+        if (rand() % 2 == 1) {
+            C6[i].set_double_number(((double)rand() / (double)(RAND_MAX * rand() % 100)));
+            C6[i].get_double_number();
+        }
+        else {
+            C6[i].set_double_number((-(double)rand() / (double)(RAND_MAX * rand() % 100)));
+            C6[i].get_double_number();
+        }
 
-                    cout << "Множество s1: " << s1 << endl;
-                    cout << "Множество s: " << s << endl;
-                    s2 = s - s1;
-                    cout << "Множество s2 = s - s1: " << s2 << endl;
-                    cout << endl;
+        // Для мнимых чисел
+        if (rand() % 2 == 1) {
+            C6[i].set_imaginary_numbers(((double)rand() / (double)(RAND_MAX * rand() % 100)));
+            C6[i].get_imaginary_numbers();
+        }
+        else {
+            C6[i].set_imaginary_numbers((-(double)rand() / (double)(RAND_MAX * rand() % 100)));
+            C6[i].get_imaginary_numbers();
+        }
 
-                    cout << "Множество s1: " << s1 << endl;
-                    cout << "Множество s: " << s << endl;
-                    s2 = s1 + s;
-                    cout << "Множество s2 = s1 + s: " << s2 << endl;
-                    cout << endl;
+        C6[i].show();
 
-                    cout << "Множество s1: " << s1 << endl;
-                    cout << "Множество s: " << s << endl;
-                    s2 = s1 * s;
-                    cout << "Множество s2 = s1 * s: " << s2 << endl;
-                    cout << endl;
+        find_max_value[i] = C6[i].get_double_number() + C6[i].get_imaginary_numbers();
+        cout << "Сумма действительных и мнимых чисел: " << find_max_value[i] << endl;
+        cout << endl << endl;
+    }
 
-                    cout << "Множество s1: " << s1 << endl;
-                    cout << "Множество s: " << s << endl;
-                    MySet<> s3 = s2;
-                    MySet<> s4(s2);
-                    cout << "Множество s3 = s2: " << s3 << endl;
-                    cout << "Множество s4(s2): " << s4 << endl;
-                    cout << endl;
+    int i_max = 0;
 
-                    if (s3 == s2)
-                        cout << "Множество s3 = s2\n";
-                    else
-                        cout << "Множество s3 != s2\n";
-                    if (s3 == s1)
-                        cout << "Множество s3 = s1\n";
-                    else
-                        cout << "Множество s3 != s1\n";
-                    if (s1 == s3)
-                        cout << "Множество s1 = s3\n";
-                    else
-                        cout << "Множество s1 != s3\n";
-                    cout << endl;
-
-                    cout << "Множество s2: " << s2 << endl;
-                    cout << "Множество s: " << s << endl;
-                    s2 += s;
-                    cout << "Множество s2 += s (s2 = s2 + s): " << s2 << endl;
-                    cout << endl;
-
-                    cout << "Множество s1: " << s1 << endl;
-                    cout << "Множество s: " << s << endl;
-                    s1 -= s;
-                    cout << "Множество s1 -= s (s1 = s1 - s): " << s1 << endl;
-                    cout << endl;
-
-                    cout << "Множество s2: " << s2 << endl;
-                    cout << "Множество s1: " << s1 << endl;
-                    s2 *= s1;
-                    cout << "Множество s2 *= s1 (s2 = s2 * s1): " << s2 << endl;
-                    cout << endl;
-                }
-
-                cout << endl;
-                cout << "==============================================================" << endl;
-                cout << "Множество типа int" << endl;
-                cout << "==============================================================" << endl;
-                cout << endl;
-                system("pause");
-
-                {
-                    MySet<int> i(0);
-                    MySet<int> i1, i2;
-
-                    i.add_element(1);
-                    i.add_element(3);
-                    i.add_element(5);
-                    i.add_element(7);
-                    cout << "Множество i: " << i << endl;
-                    //cout << endl;
-
-                    i1.add_element(0);
-                    i1.add_element(2);
-                    i1.add_element(4);
-                    i1.add_element(5);
-                    i1.add_element(6);
-                    i1.add_element(8);
-                    cout << "Множество i1: " << i1 << endl;
-                    //cout << endl;
-
-                    i2 = i1 - i;
-                    cout << "Множество i2 = i1 - i: " << i2 << endl;
-                    cout << endl;
-
-                    cout << "Множество i1: " << i1 << endl;
-                    cout << "Множество i: " << i << endl;
-                    i2 = i - i1;
-                    cout << "Множество i2 = i - i1: " << i2 << endl;
-                    cout << endl;
-
-                    cout << "Множество i1: " << i1 << endl;
-                    cout << "Множество i: " << i << endl;
-                    i2 = i1 + i;
-                    cout << "Множество i2 = i1 + i: " << i2 << endl;
-                    i2.sort();
-                    cout << "Множество i2 после сортировки: " << i2 << endl;
-                    cout << endl;
-
-                    cout << "Множество i1: " << i1 << endl;
-                    cout << "Множество i: " << i << endl;
-                    i2 = i1 * i;
-                    cout << "Множество i2 = i1 * i: " << i2 << endl;
-                    cout << endl;
-
-                    cout << "Множество i1: " << i1 << endl;
-                    cout << "Множество i: " << i << endl;
-                    MySet<int> i3 = i2;
-                    MySet<int> i4(i2);
-                    cout << "Множество i3 = s2: " << i3 << endl;
-                    cout << "Множество i4(i2): " << i4 << endl;
-                    cout << endl;
-
-                    if (i3 == i2)
-                        cout << "Множество i3 = i2\n";
-                    else
-                        cout << "Множество i3 != i2\n";
-                    if (i3 == i1)
-                        cout << "Множество i3 = i1\n";
-                    else
-                        cout << "Множество i3 != i1\n";
-                    if (i1 == i3)
-                        cout << "Множество i1 = i3\n";
-                    else
-                        cout << "Множество i1 != i3\n";
-                    cout << endl;
-
-                    cout << "Множество i2: " << i2 << endl;
-                    cout << "Множество i: " << i << endl;
-                    i2 += i;
-                    cout << "Множество i2 += i (i2 = i2 + i): " << i2 << endl;
-                    cout << endl;
-
-                    cout << "Множество i1: " << i1 << endl;
-                    cout << "Множество i: " << i << endl;
-                    i1 -= i;
-                    cout << "Множество i1 -= i (i1 = i1 - i): " << i1 << endl;
-                    cout << endl;
-
-                    cout << "Множество i2: " << i2 << endl;
-                    cout << "Множество i1: " << i1 << endl;
-                    i2 *= i1;
-                    cout << "Множество i2 *= i1 (i2 = i2 * i1): " << i2 << endl;
-                    cout << endl;
-                }
-
-                cout << endl;
-                cout << "==============================================================" << endl;
-                cout << "Множество типа char*" << endl;
-                cout << "==============================================================" << endl;
-                cout << endl;
-                system("pause");
-
-                {
-                    MySet<char*> c((char*)"First");
-                    MySet<char*> c1, c2;
-
-                    c.add_element((char*)"second");
-                    c.add_element((char*)"third");
-                    c.add_element((char*)"four");
-                    c.add_element((char*)"five");
-                    cout << "Множество c: " << c << endl;
-                    //cout << endl;
-
-                    c1.add_element((char*)"six");
-                    c1.add_element((char*)"eleven");
-                    c1.add_element((char*)"five");
-                    c1.add_element((char*)"four");
-                    c1.add_element((char*)"ten");
-                    c1.add_element((char*)"eleven");
-                    cout << "Множество c1: " << c1 << endl;
-                    //cout << endl;
-
-                    c2 = c1 - c;
-                    cout << "Множество c2 = c1 - c: " << c2 << endl;
-                    cout << endl;
-
-                    cout << "Множество c1: " << c1 << endl;
-                    cout << "Множество c: " << c << endl;
-                    c2 = c - c1;
-                    cout << "Множество c2 = c - c1: " << c2 << endl;
-                    cout << endl;
-
-                    cout << "Множество c1: " << c1 << endl;
-                    cout << "Множество c: " << c << endl;
-                    c2 = c1 + c;
-                    cout << "Множество c2 = c1 + c: " << c2 << endl;
-                    cout << endl;
-
-                    cout << "Множество c1: " << c1 << endl;
-                    cout << "Множество c: " << c << endl;
-                    c2 = c1 * c;
-                    cout << "Множество c2 = c1 * c: " << c2 << endl;
-                    cout << endl;
-
-                    cout << "Множество c1: " << c1 << endl;
-                    cout << "Множество c: " << c << endl;
-                    MySet<char*> c3 = c2;
-                    MySet<char*> c4(c2);
-                    cout << "Множество c3 = s2: " << c3 << endl;
-                    cout << "Множество c4(c2): " << c4 << endl;
-                    cout << endl;
-
-                    if (c3 == c2)
-                        cout << "Множество c3 = c2\n";
-                    else
-                        cout << "Множество c3 != c2\n";
-                    if (c3 == c1)
-                        cout << "Множество c3 = c1\n";
-                    else
-                        cout << "Множество c3 != c1\n";
-                    if (c1 == c3)
-                        cout << "Множество c1 = c3\n";
-                    else
-                        cout << "Множество c1 != c3\n";
-                    cout << endl;
-
-                    cout << "Множество c2: " << c2 << endl;
-                    cout << "Множество c: " << c << endl;
-                    c2 += c;
-                    cout << "Множество c2 += c (c2 = c2 + c): " << c2 << endl;
-                    cout << endl;
-
-                    cout << "Множество c1: " << c1 << endl;
-                    cout << "Множество c: " << c << endl;
-                    c1 -= c;
-                    cout << "Множество c1 -= c (c1 = c1 - c): " << c1 << endl;
-                    cout << endl;
-
-                    cout << "Множество c2: " << c2 << endl;
-                    cout << "Множество c1: " << c1 << endl;
-                    c2 *= c1;
-                    cout << "Множество c2 *= c1 (c2 = c2 * c1): " << c2 << endl;
-                    cout << endl;
-                }
-
-                system("pause");
-                break;
-            }
-            case 0:
-            {
-                exit(1);
-            }
-            default:
-            {
-                cout << "Введенный Вами пункт не существует. Возврат в меню!";
-                break;
-            }
+    for (int i = 1; i < size; i++) {
+        if (find_max_value[i] > find_max_value[i_max]) {
+            i_max = i;
         }
     }
+
+    cout << "Сумма максимальнных действительных и мнимых чисел: " << find_max_value[i_max] << endl;
 }
