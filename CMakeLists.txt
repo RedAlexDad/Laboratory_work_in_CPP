@@ -3,4 +3,4 @@ project(Programming_on_class_and_template)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Programming_on_class_and_template main.cpp Complex.cpp Complex.h)
+add_executable(Programming_on_class_and_template main.cpp Rect.cpp Rect.h)
