@@ -1,207 +1,243 @@
 #pragma once
 #include <iostream>
-#include <cstring>
-
-// #pragma warning(disable : 4996)
-
+#include <cmath>
 using namespace std;
 
-// Макросы
-#define SQUARE (x) ((x) * (x))
-#define PI 3.1416
-#define AREA_CIRCLE(r) (PI * (r) * (r))
-#define MAX(a, b) (((a) > (b)) ? (a) : (b))
-#define MIN(a, b) (((a) < (b)) ? (a) : (b))
-#define MAX3(x, y, z) (MAX(x, y) > (z)) ? MAX((x), (y)) : z
-#define SUM_MAS(sum, mas, size)\
-	for (int i = 0; i < size; i++) \
-		sum += mas[i]; \
-
-#define SWAPI(a, b) int tmp_i = a; a = b; b = tmp_i;
-#define SWAPD(a, b) double tmp_d = a; a = b; b = tmp_d;
-
-// Вид и название макроса: Сумма трех
-
-#define SUM3(a, b, c) ((a) + (b) + (c))
-
-#define RAZM 10;
 
 
-template <typename T>
-void SWAP(T& first, T& second) {
-    T tmp = first;
-    first = second;
-    second = tmp;
-}
-
-template <class T, int size>
-T min_mas_fun(T* arr) {
-    int min_i = 0;
-    for (int i = 1; i < size; i++)
-        if (arr[i] < arr[min_i])
-            min_i = i;
-
-    return arr[min_i];
-}
-
-template <class T>
-T summa3_fun(T x, T y, T z) {
-    return (x + y + z);
-}
-
-
-template <class T = char>
-int length_string_fun(T* str) {
-    int count = 0;
-    while (str[count] != '\0') count++;
-    return count;
-}
-
-// Шаблон класса с внутренними методами с одним параметром
-// Line - линия (коэффициенты уравнения y = b + k*x)
-template <class T>
-class Line
-{
+// Проверка абстрактного класса
+class Abstract {
 private:
-    T y, b, k, x;
+    int identificator;
+    static int count;
 
 public:
-    Line() { y = 0; b = 0; k = 0; x = 0; }
-    Line(T B, T K, T X) { y = B + K * X; b = B, k = K, x = X; }
-    ~Line() {}
+    Abstract() { identificator = count++; };
+    virtual ~Abstract() { cout << "ДЕСТРУКТОР! ~Abstract" << endl; }
+    virtual void show() = 0;
+    int get_identificator() { return identificator; }
+};
 
-    T getY() { return y; }
-    void show() {
-        cout << "b = " << b << "; k = " << k << "; x = " << x << endl; }
+// Координат
+class coordinate : public Abstract {
+protected:
+    double x1, y1, x2, y2, x3, y3;
 
-    friend ostream& operator<<(ostream& out, Line& obj) {
-        //out << obj.name << ' '
-        out << "y = b + k * x" << endl <<
-            "y = " << obj.getY() << " = " << obj.b << " + " << obj.k << " * " << obj.x << endl;
+public:
+    coordinate() { x1 = 0, y1 = 0, x2 = 0, y2 = 0, x3 = 0, y3 = 0; }
+
+    coordinate(double ac, double cb, double ab) {
+
+    }
+
+    coordinate(double X1, double Y1, double X2, double Y2, double X3, double Y3) {
+        x1 = X1, y1 = Y1, x2 = X2, y2 = Y2, x3 = X3, y3 = Y3;
+    }
+
+    ~coordinate() { cout << "ДЕСТРУКТОР! ~coordinate" << endl; }
+
+    void show(){
+        cout << "Идентификатор класса: " << get_identificator() << endl;
+        cout << "Координаты: " << endl
+             << "x1 = " << x1 << " ; y1 = " << y1 << endl
+             << "x2 = " << x2 << " ; y2 = " << y2 << endl
+             << "x3 = " << x3 << " ; y3 = " << y3 << endl;}
+
+    friend ostream& operator<<(ostream& out, coordinate obj) {
+        out << "Координаты: " << endl
+            << "x1 = " << obj.x1 << " ; y1 = " << obj.y1 << endl
+            << "x2 = " << obj.x2 << " ; y2 = " << obj.y2 << endl
+            << "x3 = " << obj.x3 << " ; y3 = " << obj.y3 << endl;
         return out;
     }
 };
 
-// Шаблон класса с внутренними методами с двумя параметрами
-template <class T, typename COLOR = int>
-class Line_color
-{
-private:
-    T y, b, k, x;
-    // 0 - RED, 1 - GREEN, 2 - BLUE;
-    COLOR color;
+// Длина отрезка
+class segment : public coordinate {
+protected:
+    // Координаты отрезка 3
+    double acX, cbX, abX, acY, cbY, abY;
+    // Длина отрезка 3
+    double ac, ab, cb;
 
 public:
-    Line_color() { y = 0; b = 0; k = 0; x = 0; }
-    Line_color(T B, T K, T X, COLOR col) { y = B + K * X; b = B, k = K, x = X; color = col;  }
-    ~Line_color() {}
+    segment(){
+        // Определение длин векторов
+        acX = 0; cbX = 0; abX = 0;
+        acY = 0; cbY = 0; abY = 0;
 
-    T getY() { return y; }
+        // Определение длин векторов
+        ac = 0;
+        ab = 0;
+        cb = 0;
+    }
+
+    segment(double x1, double y1, double x2, double y2, double x3, double y3)
+            : coordinate(x1, y1, x2, y2, x3, y3) {
+
+        // Определение точек векторов
+        acX = x3 - x1; cbX = x3 - x2; abX = x2 - x1;
+        acY = y3 - y1; cbY = y3 - y2; abY = y2 - y1;
+
+        // Определение длин векторов
+        ac = sqrt(acX * acX + acY * acY);
+        ab = sqrt(abX * abX + abY * abY);
+        cb = sqrt(cbX * cbX + cbY * cbY);
+    }
+
+    segment(double AC, double CB, double AB) {
+        ac = AC; ab = AB; cb = CB;
+
+        // Определение длин векторов
+        acX = 0; cbX = 0; abX = 0;
+        acY = 0; cbY = 0; abY = 0;
+    }
+
+    ~segment() { cout << "ДЕСТРУКТОР! ~segment" << endl; }
+
     void show() {
-        cout << "b = " << b << "; k = " << k << "; x = " << x << "; Цвет закраски: " << switch_color(color) << endl;
+        cout << "Идентификатор класса: " << get_identificator() << endl;
+        cout << "Координаты вектора: " << endl
+             << "AC { " << acX << ", " << acY << " }; " << endl
+             << "AB { " << abX << ", " << abY << " }; " << endl
+             << "CB { " << cbX << ", " << cbY << " }; " << endl
+             << "Длина отрезки: " << endl
+             << "|AC| = " << ac << endl
+             << "|AB| = " << ab << endl
+             << "|CB| = " << cb << endl;
     }
 
-    friend ostream& operator<<(ostream& out, Line_color& obj) {
-        //out << obj.name << ' '
-        out << "y = b + k * x" << endl <<
-            "y = " << obj.getY() << " = " << obj.b << " + " << obj.k << " * " << obj.x << endl <<
-            "Цвет закраски: " << obj.switch_color(obj.color) << endl;
-        return out;
-    }
-
-    const char* switch_color(COLOR color) {
-        switch (color) {
-            case 0: return "красный"; break;
-            case 1: return "зеленый"; break;
-            case 2: return "синий"; break;
-            default: return "Ошибка! Неверное кодовое наименование!"; break;
+    friend ostream& operator<<(ostream& out, segment obj) {
+        if (obj.abX != NULL) {
+            out << "Координаты вектора: " << endl
+                << "AC { " << obj.acX << ", " << obj.acY << " }; " << endl
+                << "AB { " << obj.abX << ", " << obj.abY << " }; " << endl
+                << "CB { " << obj.cbX << ", " << obj.cbY << " }; " << endl
+                << "Длина отрезки: " << endl
+                << "|AC| = " << obj.ac << endl
+                << "|AB| = " << obj.ab << endl
+                << "|CB| = " << obj.cb << endl;
         }
+        else {
+            out << "Длина отрезки: " << endl
+                << "|AC| = " << obj.ac << endl
+                << "|AB| = " << obj.ab << endl
+                << "|CB| = " << obj.cb << endl;
+        }
+        return out;
     }
 };
 
-// Шаблон класса с внешним описанием методов и двумя параметрами
-template <class T, typename COLOR = int>
-class Line_color_out
-{
-private:
-    T y, b, k, x;
-    // 0 - RED, 1 - GREEN, 2 - BLUE;
-    COLOR color;
+class triangle : public segment {
+protected:
+    double square;
 
 public:
-    Line_color_out();
-    Line_color_out(T B, T K, T X, COLOR col);
-
-    T getB();
-    T getK();
-    T getX();
-    T getY();
-    int getColor() { return color; }
-
-    void show();
-
-    const char* switch_color(COLOR color);
-};
-
-// extern template Line_color_out<int>;
-
-template <class T>
-ostream& operator <<(ostream& out, Line_color_out<T>& obj) {
-    out << "y = b + k * x" << endl <<
-        "y = " << obj.getY() << " = " << obj.getB() << " + " << obj.getK() << " * " << obj.getX() << endl
-        << "Цвет закраски: " << obj.switch_color(obj.getColor()) << endl;
-    return out;
-}
-
-// Описание нового класса на основе шаблона класса
-class derived: public Line_color_out<double, int> {
-private:
-    double y;
-    string color;
-
-public:
-    derived(double b, double k, double x, string col) :
-            Line_color_out(b, k, x, FillColor(col)) {
-        y = b + k * x;
-        color = col;
+    triangle(){
+        // по формуле Герона
+        double p = (ab + ac + cb) / 2;
+        square = sqrt(p * (p - ab) * (p - ac) * (p - cb));
+    }
+    triangle(double AB, double AC, double CB) : segment(AC, CB, AB) {
+        ab = AB; ac = AC; cb = CB;
+        // по формуле Герона
+        double p = (AB + AC + CB) / 2;
+        square = sqrt(p * (p - AB) * (p - AC) * (p - CB));
     }
 
-    ~derived(){}
+    triangle(double x1, double y1, double x2, double y2, double x3, double y3)
+            : segment(x1, y1, x2, y2, x3, y3) {
 
-    int FillColor(string color) {
-        if ("красный" == color)
-            return 0;
-        else if ("зеленый" == color)
-            return 1;
-        else if ("синий" == color)
-            return 2;
-        else return NULL;
+        // Определение точек векторов
+        acX = x3 - x1; cbX = x3 - x2; abX = x2 - x1;
+        acY = y3 - y1; cbY = y3 - y2; abY = y2 - y1;
+
+        // Определение длин векторов
+        ac = sqrt(acX * acX + acY * acY);
+        ab = sqrt(abX * abX + abY * abY);
+        cb = sqrt(cbX * cbX + cbY * cbY);
+
+        double p = (ab + ac + cb) / 2;
+        square = sqrt(p * (p - ab) * (p - ac) * (p - cb));
+    }
+
+    triangle(double SQUARE) { square = SQUARE; }
+    ~triangle() { cout << "ДЕСТРУКТОР! ~triangle" << endl; }
+
+    void show() {
+        cout << "Идентификатор класса: " << get_identificator() << endl;
+        cout << "Площадь равностороннего треугольника: " << square << endl;
+    }
+
+    friend ostream& operator<<(ostream& out, triangle obj) {
+        //segment(obj.ac, obj.cb, obj.ab);
+        out << "Длина отрезки: " << endl
+            << "|AC| = " << obj.ac << endl
+            << "|AB| = " << obj.ab << endl
+            << "|CB| = " << obj.cb << endl
+            << "Площадь равностороннего треугольника: " << obj.square << endl;
+        return out;
     }
 };
 
 
-// Описание нового шаблона класса на основе шаблона класса
-template <typename T = double>
-class derived_with_template : public Line_color_out<T, int> {
-private:
-    T y;
-    string color;
-
+class A {
+protected:
+    // Общий алфавит
+    char alphavit;
 public:
-    derived_with_template(T b, T k, T x, string col) :
-            Line_color_out<T, int>(b, k, x, FillColor(col)) {
-        y = b + k * x;
-        color = col;
-    }
-    ~derived_with_template() {}
+    A() { alphavit = NULL; }
+    A(char BUKVA) { alphavit = BUKVA; }
+    //A(const char BUKVA) { alphavit = BUKVA; }
+    virtual ~A() { cout << "ДЕСТРУКТОР! ~A" << endl; }
 
-    int FillColor(string color) {
-        if ("красный" == color)
-            return 0;
-        else if ("зеленый" == color)
-            return 1;
-        else if ("синий" == color)
-            return 2;
-        else return NULL;
-    }
+    char get_alphavit() { return alphavit; }
+
+    virtual void show() { cout << "Буква общих алфавит: " << alphavit << endl; }
+};
+
+class F : public virtual A {
+protected:
+    // Французские алфавиты
+    char franc_al;
+public:
+    F() : A() { franc_al = NULL; }
+    F(char BUKVA, char NEW_BUKVA) : A(BUKVA) { franc_al = NEW_BUKVA; }
+    //F(const char BUKVA) : A(BUKVA) { franc_al = BUKVA; }
+    virtual ~F() { cout << "ДЕСТРУКТОР! ~F" << endl; }
+
+    char get_franc_al() { return franc_al; }
+
+    virtual void show() { cout << "Анлгийские алфавиты: " << franc_al << endl; }
+};
+
+class C : public virtual A {
+protected:
+    // Латинские алфавиты
+    char latin_al;
+public:
+    C() : A() { latin_al = NULL; }
+    C(char BUKVA, char NEW_BUKVA) : A(BUKVA) { latin_al = NEW_BUKVA; }
+    //C(const char BUKVA) : A(BUKVA) { latin_al = BUKVA; }
+    virtual ~C() { cout << "ДЕСТРУКТОР! ~C" << endl; }
+
+    char get_latin_al() { return latin_al; }
+
+    virtual void show() { cout << "Латинские алфавиты: " << latin_al << endl; }
+};
+
+class D : public F, public C {
+protected:
+    // Древнегреческие алфавиты
+    char old_grec_al;
+public:
+    D() : F(), C() { old_grec_al = NULL; }
+    D(char BUKVA0, char BUKVA1, char BUKVA2, char BUKVA3) : A(BUKVA0), F(BUKVA0, BUKVA1), C(BUKVA0, BUKVA2)
+    { old_grec_al = BUKVA3; }
+    //D(const char BUKVA) : A(BUKVA) { old_grec_al = BUKVA; }
+    virtual ~D() { cout << "ДЕСТРУКТОР! ~D" << endl; }
+
+    char get_old_grec_al() { return old_grec_al; }
+
+    virtual void show() { cout << "Древнегреческие алфавиты: " << old_grec_al << endl; }
 };
