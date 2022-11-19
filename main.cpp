@@ -1,35 +1,86 @@
-// LAB_05_cin_cout.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-
-/*
-Вариант 4
-Тип / название функции:		double /Произведение (Mult)
-Класс пользователя/ номер для чтения:	Bus (Номер маршрута, фамилия водителя) / 1
-Тип и имя манипулятора без параметров (д.т.):	 ddd: установка oct и showbase
-*/
+// LAB_06_Template.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
 
 #include <iostream>
-#include <fstream>
-#include <iomanip>
-#include "header.h"
-#include <cstring>
+#include "Header.h"
+#include <string.h>
 
-#pragma warning(disable : 4996)
+// #pragma warning(disable : 4996)
+
 using namespace std;
+
+//Для всех любых параметров
+template <class T>
+void find_short_string_fun(T* arr, int size) {
+    cout << "Вызов функции специализации с незивестным типом" << endl;
+    char* tmp = nullptr;
+    int tmp1 = NULL, tmp2 = NULL;
+    for (int i = 0; i < size - 1; i++) {
+        tmp1 = strlen(arr[i]);
+        tmp2 = strlen(arr[i + 1]);
+
+        if (tmp1 < tmp2)
+            tmp = arr[i];
+    }
+    cout << "Самая короткая строка: " << tmp << endl;
+}
+
+// Шаблон функции с специализациями
+// Примечание, чтобы работала специализация, её нужно написать в основном заголовочном файле,
+// т.е. где присутствует главная функция, int / void main() {...}
+//
+
+//Для string
+template <>
+void find_short_string_fun <string>(string* arr, int size) {
+    cout << "Вызов функции специализации с типом string" << endl;
+    string tmp;
+    int tmp1 = NULL, tmp2 = NULL;
+    for (int i = 0; i < size - 1; i++) {
+        tmp1 = arr[i].size();
+        tmp2 = arr[i + 1].size();
+
+        if (tmp1 < tmp2)
+            tmp = arr[i];
+    }
+    cout << "Самая короткая строка: " << tmp << endl;
+}
+
+//Для char
+template <>
+void find_short_string_fun <char>(char* arr, int size) {
+    //template <> void find_short_string_fun <string>(string* arr, int size) {
+    char* tmp = nullptr;
+    int tmp1 = NULL, tmp2 = NULL;
+    for (int i = 0; i < size - 1; i++) {
+        cout << "arr[ " << i << " ] : " << arr[i] << endl;
+        cout << "arr[ " << i + 1 << " ] : " << arr[i+1] << endl;
+        cout << "&arr[ " << i << " ] : " << &arr[i] << endl;
+        cout << "&arr[ " << i + 1 << " ] : " << &arr[i+1] << endl;
+        tmp1 = strlen(&arr[i]);
+        tmp2 = strlen(&arr[i + 1]);
+
+        if (tmp1 < tmp2)
+            tmp = &arr[i];
+    }
+    cout << "Самая короткая строка: " << tmp << endl;
+}
 
 int main()
 {
     system("chcp 65001");
-    cout << "Лабораторная работа № 5\n Папин А.В., ИУ5Ц-41Б \n Вариант № 4\n\n";
+    cout << "Лабораторная работа № 6\n Папин А.В., ИУ5Ц-41Б \n Вариант № 4\n\n";
 
-    cout << "№1.	2.1.3.	Выполнить операции ввода и вывода для переменных стандартных типов" << endl;
-    cout << "№2.	2.1.4.	Выполнить операции ввода и вывода с помощью методов get, getline, put, write" << endl;
-    cout << "№3.	2.1.5.	Продемонстрировать использование методов форматирования вывода в поток" << endl;
-    cout << "№4.	2.1.6.	Продемонстрировать использование манипуляторов для потоковых объектов." << endl;
-    cout << "№5.	2.1.7.	Продемонстрировать использование пользовательского манипулятора. " << endl;
-    cout << "№6.	2.1.8.	Продемонстрировать вызов функций в потоках ввода и вывода и проектах. " << endl;
-    cout << "№7.	2.1.9.	Вывод и вывод объектов пользовательских классов в стандартных потоках." << endl;
-    cout << "№8.	2.1.10.	Работа с текстовым файлом" << endl;
-    cout << "№9.	2.1.11.	Работа с бинарным файлом" << endl;
+    cout << "№1.	2.1.3.	Макрокоманды и переменные этапа компиляции" << endl;
+    cout << "№2.	2.1.4.	Шаблоны функции Swap" << endl;
+    cout << "№3.	2.1.5.	Шаблон функции с несколькими параметрами (по варианту)" << endl;
+    cout << "№4.	2.1.6.	Специализация шаблона функции" << endl;
+    cout << "№5.	2.1.7.	Шаблон класса с внутренними методами с одним параметром" << endl;
+    cout << "№6.	2.1.8.	Шаблон класса с внутренними методами с двумя параметрами" << endl;
+    cout << "№7.	2.1.9.	Шаблон класса с внешним описанием методов и двумя параметрами" << endl;
+    cout << "№8.	2.1.10.	Описание нового класса на основе шаблона класса" << endl;
+    cout << "№9.	2.1.11.	Описание нового шаблона класса на основе шаблона класса" << endl;
+    cout << "№10.	2.1.12.	Задание нового типа на основе шаблона (typedef)" << endl;
     cout << "№0.	Выход с программы" << endl;
 
     int sw;
@@ -37,470 +88,229 @@ int main()
     cout << "Введите номер пункт: ";
     cin >> sw;
 
-
     switch (sw)
     {
-        case 1:
-        {
+
+        case 1: {
             system("cls");
-            cout << "№1.	2.1.3.	Выполнить операции ввода и вывода для переменных стандартных типов" << endl;
+            cout << "№1.	2.1.3.	Макрокоманды и переменные этапа компиляции" << endl;
 
-            int iVal;
-            double dVal;
-            bool bVal;
-            char sMas[100];
+            int mas[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            //int RAZM = sizeof(mas) / sizeof(int);
+
+            int sum = 0;
+            //SUM_MAS(sum, mas, RAZM);
+            int size = RAZM;
+            for (int i = 0; i < size; i++)
+                sum += mas[i];
+
+            cout << "Сумма всех элементов массивы: " << sum << endl;
+
+            int x, y;
+            x = 10;
+            y = 20;
+
+            cout << "До SWAP" << endl;
+            cout << "x = " << x << "; y = " << y << endl;
+            SWAPI(x, y);
+            cout << "После SWAP" << endl;
+            cout << "x = " << x << "; y = " << y << endl;
+
+            int a, b, c;
+            a = 1; b = 2; c = 3;
+            cout << "a = " << a << "; b = " << b << "; c = " << c << ";" << endl;
+            cout << "Сумма трех элементов (через макрос): " << SUM3(a, b, c) << endl << endl;
+
+            break;
+        }
+        case 2: {
+            system("cls");
+            cout << "№2.	2.1.4.	Шаблоны функции Swap" << endl;
+
+            int x, y;
+            x = 10;
+            y = 20;
 
 
-            cout << "Введите любое целое число iVal: ";
-            cin >> iVal;
-            cout << "Было ведено значение iVal: " << iVal << endl << endl;
+            cout << "Целый тип (указатель):" << endl;
+            cout << "До SWAP" << endl;
+            cout << "x = " << x << "; y = " << y << endl;
+            SWAP<int>(x, y);
+            cout << "После SWAP" << endl;
+            cout << "x = " << x << "; y = " << y << endl;
 
 
-            cout << "Введите любое вещественное число dVal: ";
-            cin >> dVal;
-            cout << "Было ведено значение dVal: " << dVal << endl << endl;
+            double z, d;
+            z = 3.1416;
+            d = 1.474;
 
 
-            cout << "Введите 1 или 0 для логического типа bVal: ";
-            cin >> bVal;
-            cout << "Было ведено значение bVal: " << bVal << ", " << boolalpha << " \"" << bVal << "\"" << endl << endl;
-
-
-            cout << "Введите любую строку sMas: ";
-            cin >> sMas;
-            cout << "Было ведено значение sMas: " << sMas << endl << endl;
-
-            // Описываем указатель на целую переменную iVal;
-            int *pInt = &iVal;
-
-            // Присвоим значение 5
-            iVal = 5;
-
-            // Вывод на КО
-            cout << "(адрес) iVal = " << &iVal << endl;
-            cout << "(значение) iVal = " << iVal << endl;
-            cout << "(адрес) pInt = " << pInt << endl;
-            cout << "(значение) pInt = " << *pInt << endl;
-
-            // Вводим значения через указатели
-            cout << "Введите любое целое число pInt: ";
-            cin >> *pInt;
-
-            /*
-            Здесь можно заметить, что адрес переменной iVal и pInt совпадает, следовательно значение, которое
-            пользователь вводит, передает на адрес переменной через указатели, т.е. на переменную iVal*/
-
-            // Вывод на КО
-            cout << "(адрес) iVal = " << &iVal << endl;
-            cout << "(значение) iVal = " << iVal << endl;
-            cout << "(адрес) pInt = " << pInt << endl;
-            cout << "(значение) pInt = " << *pInt << endl;
+            cout << "Вещественный тип (указатель):" << endl;
+            cout << "До SWAP" << endl;
+            cout << "z = " << z << "; d = " << d << endl;
+            SWAP<double>(z, d);
+            cout << "После SWAP" << endl;
+            cout << "z = " << z << "; d = " << d << endl;
 
 
             break;
         }
-
-        case 2:
-        {
+        case 3: {
             system("cls");
-            cout << "№2.	2.1.4.	Выполнить операции ввода и вывода с помощью методов get, getline, put, write" << endl;
+            cout << "№3.	2.1.5.	Шаблон функции с несколькими параметрами (по варианту)" << endl;
+
 
             /*
-            *
-            Основные методы классов потокового вывода следующие:
-
-                put – помещает в тот выходной поток, для которого она вызвана, символ,
-                использованный в качестве фактического парамет¬ра;
-                    cout.put('*'); // вывод звездочки
-
-                write – имеет два параметра - указатель array на учас¬ток памяти,
-                из которого выполняется вывод, и целое значение n,
-                определяющее количество выводимых из этого участка символов (байт);
-                    char Str1[]= "Печать write";
-                    cout.write(Str1, strlen(Str1));
-
-            Основные методы классов потокового ввода следующие:
-
-                get – ввод символа и строки:
-                    cin.get(c); // При вводе символа в буфере остается символ конца строки!!
-                    cin.get( line, 25 );
-
-                getline – ввод строки по завершающему символу (‘t’)
-                    cin.getline( line, 100, 't' );
-
-                read – ввод строки по счетчику (Count)
-                    cin.read(&line[0], Count); //Указатель на первый элемент
-
-
-            Основные методы форматирования вывода следующие:
-                setf – установить (и сбросить – 2-й параметр) режим и флаг форматирования
-                    cout.setf( ios_base::hex,ios_base::basefield); // вывод в шестнадцатеричном формате
-                    cout.setf(ios_base::oct, ios_base::basefield);    // вывод в восьмеричном формате
-
-                unsetf – сбросить режим и флаг форматирования
-                    cout.unsetf( ios_base::hex ); // отменить вывод в шестнадцатеричном формате
-
-                width – установить ширину вывода переменной
-                    cout.width(20); // ширина вывода 20
-
-                precision – установить точность вывода вещественных чисел (дробная часть)
-                    cout.precision(3); // установить дробную часть в 3 знака, включая точку
-
-                fill – установить символ для заполнения свободных позиций.
-                    cout.fill('*'); // символ заполнения '*'
-
-
+            Сумма int = 15
+            Сумма float =  19.6
+            Сумма double =  15.6
             */
 
-            int iVal;
-            double dVal;
-            bool bVal;
-            char sMas[200] = {"Мы на паре разбираемся тему \"Потоковый ввод вывод и для стандартных объектов CIN и COUT и файлов\""};
+            int mas_i[10] = { 1, 2, 3, 4, 0, 6, 7, 8, 9, 10 };
 
-            // вывод звездочки
-            cout.put('*');
+            cout << "Минимальный элемент массива(целочисленный тип): " << min_mas_fun<int, 10>(mas_i) << endl;
 
-            cout << endl;
+            float mas_f[10] = { 2.23, 3.52, 4.16, 5.77, 9.3, 8.9, 7.97, 6.78, 3.12, 1.77 };
 
-            cout.write(sMas, strlen(sMas));
+            cout << "Минимальный элемент массива(вещественный тип): " << min_mas_fun<float, 10>(mas_f) << endl;
 
-            cout << endl;
 
-            cin.ignore();
-            cin.getline(sMas, 100);
-            cout.write(sMas, strlen(sMas));
+            double mas_d[10] = { 1.123, 2.756, 3.1416, 4.3777, 0.13, 6.199, 7.889, 8.1678, 9.431, 10.13677 };
 
-            cout << endl;
-
-            char one_bukva;
-
-            //cin.ignore();
-            cin.get(one_bukva);
-            cout.put(one_bukva);
-
-            cout << endl;
+            cout << "Минимальный элемент массива(вещественный тип): " << min_mas_fun<double, 10>(mas_d) << endl;
 
             break;
         }
-
-        case 3:
-        {
+        case 4: {
             system("cls");
-            cout << "№3.	2.1.5.	Продемонстрировать использование методов форматирования вывода в поток" << endl;
+            cout << "№4.	2.1.6.	Специализация шаблона функции" << endl;
 
-            /*
-            Основные стандартные манипуляторы:
-
-            setw – устанавливает ширину поля вывода (аналогично методу width);
-                 cout << setw(30) << sMas << endl; //Строка sMas выводиться в поле шириной 30 позиций
-
-            setfill – устанавливает символ заполнения (аналогично методу fill);
-               cout << " sMas =  " << setw(30) << setfill('!') << sMas << " sMas " <<endl;
-
-            setprecision – устанавливает точность вывода (аналогично методу precision);
-               cout << setprecision(3) << f << endl;
-
-            setbase(int n)  – устанавливает основание (n) системы счисления. Значениями параметра n могут быть: 0, 8, 10 или 16;
-               cout << setbase(8) << iVal << endl;
-
-            hex – вывод в шестнадцатеричном виде (аналогично методу setf);
-               cout <<"hex iVal =  " << hex << iVal << endl;
-
-            oct – вывод в восьмеричном виде (аналогично методу setf);
-               cout <<"oct iVal =  " << oct << iVal << endl;
-
-            dec – вывод в десятичном виде (аналогично методу setf);
-               cout <<"dec iVal =  " << dec << iVal << endl ;
-
-            fixed – устанавливает вывод с фиксированной точкой (аналогично методу setf);
-               cout << fixed << f << endl;
-
-            showbase– устанавливает вывод признака системы счисления (аналогично методу setf);
-               cout << "Для hex - " << showbase << hex << i << endl;
-
-            left– устанавливает форматирование влево (аналогично методу setf);
-               cout << left << setw(30) << setfill('!') << sMas << "sMas после left в потоке" <<endl;
-
-            right– устанавливает форматирование вправо (аналогично методу setf);
-             cout << right << setw(30) << setfill('!') << sMas << "sMas после right в потоке" <<endl;
-
-            endl – переводит строку при выводе (аналогично выводу ‘\n’);
-              cout << endl << endl << endl;
-
-            scientific– устанавливает научный формат вывода чисел (аналогично методу setf);
-              cout << " f = 5.2111 "<< scientific << f << endl;
-
-            boolalpha – устанавливает вывод логических переменных (аналогично методу setf);
-               cout << boolalpha << b << endl; // получим true или false
-            */
-
-            int iVal;
-            double dVal;
-            bool bVal;
-            char sMas[100];
-
-            cout << "Введите любое целое число iVal: ";
-            cin >> iVal;
-            cout << "Введено: " << iVal << endl << endl;
+            // string (самая короткая строка)
+            string PlanetsS[] = {"Меркурий", "Венера", "Земля", "Марс", "Юпитер", "Сатурн", "Уран", "Нептун"};
+            char PlanetsC[][20] = {"Меркурий", "Венера", "Земля", "Марс", "Юпитер", "Сатурн", "Уран", "Нептун"};
 
 
-            cout << "Введите любое вещественное число dVal: ";
-            cin >> dVal;
-            cout << "Введено: " << dVal << endl << endl;
-
-
-            cout << "До precision dVal:\t" << cout.precision() << '\n';
-            cout.precision(2);
-            cout << "После cout.precision(2) dVal:\t\t" << cout.precision() << '\n';
-            // Научный формат
-            cout.setf(ios_base::scientific, ios_base::floatfield);
-            cout << "Научный формат dVal:\t" << dVal << '\n';
-            // Формат с фиксированной точкой
-            cout.setf(ios_base::fixed, ios_base::floatfield);
-            cout << "Формат с фиксированной точкой dVal:\t\t" << dVal << '\n';
-            cout.precision(8);
-            cout << "После cout.precision(8) dVal:\t\t" << cout.precision() << '\n';
-            // Научный формат
-            cout.setf(ios_base::scientific, ios_base::floatfield);
-            cout << "Научный формат dVal:\t" << dVal << '\n';
-            // Восстановление точности по умолчанию
-            cout.precision(6);
-            cout << "Восстановление точности по умолчанию dVal:\t" << cout.precision() << '\n';
+            cout << "Строка: " << endl;
+            for (int i = 0; i < 8; i++)
+                cout << PlanetsS[i] << ' ';
             cout << endl << endl;
 
-            cout << "Введите 1 или 0 для логического типа bVal: ";
-            cin >> bVal;
-            cout << "Введено: " << bVal << ", " << boolalpha << " \"" << bVal << "\"" << endl << endl;
-
-
-            cout << "Введите любую строку sMas: ";
-            cin >> sMas;
-            cout << "Введено: " << sMas << endl << endl;
-
-
-            // fill - манипулятор заполнителя, символ которого передаётся в одинарных кавычках
-            cout.fill('.');
-
-            // Изменение ширины поля вывода
-            cout << setw(30) << sMas << endl;
-
-            // Прижать к левой границе
-            cout << setw(30) << left << sMas << endl;
-
-            // Прижать к правой границе
-            cout << setw(30) << right << sMas << endl;
-
-            // Прижать к правой границе
-            cout << setw(30) << internal << sMas << endl;
-
-            // Сбрасываем настройку
-            cout.fill(' ');
-
-            int value = 15;
-            cout << "value (десятичная) = " << value << endl;
-
-            cout.unsetf(ios::dec);
-            cout.setf(ios::oct);
-            cout << "value (восьмеричная) = " << value << endl;
-
-            cout.unsetf(ios::oct);
-            cout.setf(ios::hex);
-            cout << "value (шестн.ричная) = " << value << endl;
-
-            // Сброс, по умолчанию, десятичная
-            cout.unsetf(ios::hex);
-            cout.setf(ios::dec);
-            cout << "value (десятичная) = " << value << endl;
-
+            cout << "Короткая строка: " << endl;
+            // Вызов функции спецализации с известным типом
+            find_short_string_fun<string>(PlanetsS, 8);
+            // Вызов функции специализации с неизвестным типом
+            find_short_string_fun(PlanetsC, 8);
 
             break;
         }
-
-        case 4:
-        {
+        case 5: {
             system("cls");
-            cout << "№4.	2.1.6.	Продемонстрировать использование манипуляторов для потоковых объектов." << endl;
-
-            int iVal;
-            double dVal;
-            bool bVal;
-            char sMas[100];
-
-            cout << "Введите любое целое число iVal: ";
-            cin >> iVal;
-            cout << "Введено: " << iVal << endl << endl;
-
-            cout << "iVal (десятичная) = " << iVal << endl;
-
-            cout.unsetf(ios::dec);
-            cout.setf(ios::oct);
-            cout << "iVal (восьмеричная) = " << iVal << endl;
-
-            cout.unsetf(ios::oct);
-            cout.setf(ios::hex);
-            cout << "iVal (шестн.ричная) = " << iVal << endl;
-
-            // Сброс, по умолчанию, десятичная
-            cout.unsetf(ios::hex);
-            cout.setf(ios::dec);
-            cout << "iVal (десятичная) = " << iVal << endl;
+            cout << "№5.	2.1.7.	Шаблон класса с внутренними методами с одним параметром" << endl << endl;
 
 
-            cout << "setbase(16) для " << iVal << " = " << setbase(16) << iVal << endl;
-            cout << "setbase(10) для " << iVal << " = " << setbase(10) << iVal << endl;
-            cout << "setbase(8) для " << iVal << " = " << setbase(8) << iVal << endl;
+            Line<int> AI(1, 2, 3);
+            AI.show();
+            cout << "Функция y: " << AI.getY() << endl << endl;
+            cout << AI << endl;
 
-            cout << "Для hex - " << hex << showbase << iVal << endl;
+            Line<double> AD(1.123456, 2.87654, 3.1416);
+            AD.show();
+            cout << "Функция y: " << AD.getY() << endl << endl;
+            cout << AD << endl;
 
-            cout << "Введите любое вещественное число dVal: ";
-            cin >> dVal;
-            cout << "Введено: " << dVal << endl << endl;
-
-
-            cout << "dVal =  " << dVal << scientific << dVal << endl;
-
-
+            Line<float> AF(9.556, 6.2354, 5.6);
+            AF.show();
+            cout << "Функция y: " << AF.getY() << endl << endl;
+            cout << AF << endl;
 
             break;
         }
-
-        case 5:
-        {
+        case 6: {
             system("cls");
-            cout << "№5.	2.1.7.	Продемонстрировать использование пользовательского манипулятора. " << endl;
+            cout << "№6.	2.1.8.	Шаблон класса с внутренними методами с двумя параметрами" << endl << endl;
 
-            // Чтобы найти восьмеричную систему счисления, нужно сначала сделать значение целочисленным типом
-            int value = 15;
+            Line_color<int> AI(1, 2, 3, 0);
+            //AI.show();
+            cout << "Функция y: " << AI.getY() << endl << endl;
+            cout << AI << endl;
 
-            cout << "Стандарт: " << value << endl;
-            cout << "Измененено: " << ddd << value << endl;
+            Line_color<double> AD(1.123456, 2.87654, 3.1416, 2);
+            //AD.show();
+            cout << "Функция y: " << AD.getY() << endl << endl;
+            cout << AD << endl;
+
+            Line_color<float> AF(9.556, 6.2354, 5.6, 1);
+            //AF.show();
+            cout << "Функция y: " << AF.getY() << endl << endl;
+            cout << AF << endl;
 
             break;
         }
-
-        case 6:
-        {
+        case 7: {
             system("cls");
-            cout << "№6.	2.1.8.	Продемонстрировать вызов функций в потоках ввода и вывода и проектах. " << endl;
+            cout << "№7.	2.1.9.	Шаблон класса с внешним описанием методов и двумя параметрами" << endl;
 
-            cout << Mult() << endl;
-
-            extern int iSecond;
-
-            cout << "iSecond  = " << iSecond << endl;
-
+            Line_color_out<long> AL(49235756, 821231235, 568216473, 0);
+            //AL.show();
+            cout << "Функция y: " << AL.getY() << endl << endl;
+            cout << AL << endl;
 
             break;
         }
-
-        case 7:
-        {
+        case 8: {
             system("cls");
-            cout << "№7.	2.1.9.	Вывод и вывод объектов пользовательских классов в стандартных потоках." << endl;
+            cout << "№8.	2.1.10.	Описание нового класса на основе шаблона класса" << endl;
 
-            Bus Moscow[] = {
-                    { "Ignatev C. V.", 100 },
-                    { "Svidirov C. K.", 365,  },
-                    { "Ivanov M. M.", 111,  },
-                    { "Aphanasev V. M.", 300,  },
-                    { "Brezhnev L. I.", 123,  }
-            };
+            //Line_color_out<int> A1(1, 2, 3, 1);
+            //Line_color_out<double> A2(1.867, 2.1, 3.78, 1);
+            //A1.show();
+            //A2.show();
+            derived A1_d(1.423, 324.2, 543.14, "красный");
+            cout << A1_d << endl;
 
-            for (int i = 0; i < 5; i++)
-                Moscow[i].show();
+            //int color = A1_d.FillColor("зеленый");
 
             break;
         }
-
-        case 8:
-        {
+        case 9: {
             system("cls");
-            cout << "№8.	2.1.10.	Работа с текстовым файлом" << endl;
+            cout << "№9.	2.1.11.	Описание нового шаблона класса на основе шаблона класса" << endl;
 
-            Bus Moscow[] = {
-                    { "Ignatev C. V.", 100 },
-                    { "Svidirov C. K.", 365,  },
-                    { "Ivanov M. M.", 111,  },
-                    { "Aphanasev V. M.", 300,  },
-                    { "Brezhnev L. I.", 123,  }
-            };
+            derived_with_template<double> A1_d_template(3.423, 424.2, 243.14, "красный");
+            cout << A1_d_template << endl;
 
-            int size = sizeof(Moscow) / sizeof(Bus);
+            derived_with_template<float> A2_f_template(1.423, 324.2, 543.14, "зеленый");
+            cout << A2_f_template << endl;
 
-            // СОЗДАНИЕ НОВОГО ФАЙЛА
-            fstream DB;
-            writeTextFile(DB, Moscow, size);
-
-            // ЧТЕНИЕ И РАСПЕЧАТКА ФАЙЛА
-            readTextFile(DB);
-
-            // ИЗМЕНЕНИЕ И РАСПЕЧАТКА ФАЙЛА.
-            addTextFile(DB, Moscow);
-            readTextFile(DB);
+            derived_with_template<int> A3_d_template(4, 9, 2, "синий");
+            cout << A3_d_template << endl;
 
             break;
         }
-
-        case 9:
-        {
+        case 10: {
             system("cls");
-            cout << "№9.	2.1.11.	Работа с бинарным файлом" << endl;
+            cout << "№10.	2.1.12.	Задание нового типа на основе шаблона (typedef)" << endl;
 
-            Bus MoscowB[] = {
-                    { "Ignatev C. V.", 100 },
-                    { "Svidirov C. K.", 365,  },
-                    { "Ivanov M. M.", 111,  },
-                    { "Aphanasev V. M.", 300,  },
-                    { "Brezhnev L. I.", 123,  }
-            };
-
-            int size = sizeof(MoscowB) / sizeof(Bus);
-
-            // СОЗДАНИЕ НОВОГО ФАЙЛА
-            fstream DB;
-            writeTextFile(DB, MoscowB, size);
-
-            // ЧТЕНИЕ И РАСПЕЧАТКА ФАЙЛА
-            readBinFile(DB, "MoscowB.bin");
-            cout << endl;
-
-            // ИЗМЕНЕНИЕ И РАСПЕЧАТКА ФАЙЛА
-            addBinFile(DB, *MoscowB);
-            readBinFile(DB, "MoscowB.bin");
-            cout << endl;
-
-            // ЧТЕНИЕ ЗАПИСИ ПО НОМЕРУ
-            int number;
-            cout << "Введите номер записи: ";
-            cin >> number;
-
-            readBinFile_N(DB, number);
-            cout << endl;
-
-            // СОЗДАНИЕ НОВОГО ФАЙЛА
-            fstream DB2;
-            createNewFile(DB2);
-            cout << "Сортировка по четной записи" << endl;
-            readBinFile(DB2, "LR2.bin");
-
+            typedef Line_color_out<int> CCO_INT;
+            CCO_INT A1I(1, 4, 7, 0);
+            //A1I.show();
+            cout << A1I << endl;
 
             break;
         }
-
-
         case 0:
         {
             cout << "Выход с программы" << endl;
             system("pause");
             break;
         }
-
         default:
         {
             cout << "Ошибка! Неизвестная команда!" << endl;
             system("pause");
             break;
         }
-
     }
+
 }

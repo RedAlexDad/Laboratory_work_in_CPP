@@ -1,7 +1,8 @@
 # ninja log v5
 4	307	6905669653352105	CMakeFiles/Programming_on_class_and_template.dir/Rect.cpp.obj	7681f145f6517233
-1	317	6905669653442248	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	c69718f0e031c03b
-317	390	6905669654162247	Programming_on_class_and_template.exe	dcb424582cb06d09
-4	423	6905674173416416	CMakeFiles/Programming_on_class_and_template.dir/Second.cpp.obj	b579abec39c09469
-1	439	6905674173566428	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
+6	342	6905677570550141	CMakeFiles/Programming_on_class_and_template.dir/Second.cpp.obj	b579abec39c09469
+2	456	6905677571690376	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
 439	517	6905674174316437	Programming_on_class_and_template.exe	9e6f5eb6bbb39052
+6	325	6905681864670521	CMakeFiles/Programming_on_class_and_template.dir/Second.cpp.obj	b579abec39c09469
+2	404	6905681865450455	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
+404	485	6905681866230392	Programming_on_class_and_template.exe	9e6f5eb6bbb39052

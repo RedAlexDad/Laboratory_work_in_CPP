@@ -20,22 +20,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2158e0d3-1817-4f3b-bbf0-2fb421e36dd7" name="Changes" comment="Четвертое задание &quot;Перегрузки операций&quot; добавлено">
+    <list default="true" id="2158e0d3-1817-4f3b-bbf0-2fb421e36dd7" name="Changes" comment="Пятое задание &quot;Поток ввода и вывода и для стандартных объектов CIN и COUT и файлов&quot; добавлено">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Second.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rect.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-c781a0cb648ef0773210.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-ffbc9235b7ecc549a13b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-11-19T13-16-03-0859.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Programming_on_class_and_template-Debug-d2ba0b69fc261f83feb1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Header.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Second.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Second.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Programming_on_class_and_template.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Programming_on_class_and_template.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +50,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="exercise_4_overloading_operation" />
+        <entry key="$PROJECT_DIR$" value="exercise_5_stream_ostream" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -184,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668863793490</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Пятое задание &quot;Поток ввода и вывода и для стандартных объектов CIN и COUT и файлов&quot; добавлено">
+      <created>1668864327118</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668864327118</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +211,7 @@
     <MESSAGE value="Первое задание &quot;функция&quot; добавлено" />
     <MESSAGE value="Второе задание &quot;Класс&quot; добавлено" />
     <MESSAGE value="Четвертое задание &quot;Перегрузки операций&quot; добавлено" />
-    <option name="LAST_COMMIT_MESSAGE" value="Четвертое задание &quot;Перегрузки операций&quot; добавлено" />
+    <MESSAGE value="Пятое задание &quot;Поток ввода и вывода и для стандартных объектов CIN и COUT и файлов&quot; добавлено" />
+    <option name="LAST_COMMIT_MESSAGE" value="Пятое задание &quot;Поток ввода и вывода и для стандартных объектов CIN и COUT и файлов&quot; добавлено" />
   </component>
 </project>

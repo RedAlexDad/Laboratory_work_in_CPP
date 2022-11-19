@@ -1,0 +1,5 @@
+100	Ignatev C. V.
+365	Svidirov C. K.
+111	Ivanov M. M.
+300	Aphanasev V. M.
+123	Brezhnev L. I.

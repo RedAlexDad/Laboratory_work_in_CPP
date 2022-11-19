@@ -1,202 +1,46 @@
+#include "Header.h"
 #include <iostream>
-#include "header.h"
-#include <fstream>
-#include <iomanip>
-#include <io.h>
+#include <cstring>
 
+// #pragma warning (disable : 4996)
 using namespace std;
 
-ostream& ddd(ostream& s) {
-    return s << oct << showbase;
+template class Line_color_out<int>;
+template class Line_color_out<float>;
+template class Line_color_out<double>;
+template class Line_color_out<long>;
+
+
+template <class T, typename COLOR>
+Line_color_out<T, COLOR>::Line_color_out() { y = 0; b = 0; k = 0; x = 0; }
+
+template <class T, typename COLOR>
+Line_color_out<T, COLOR>::Line_color_out(T B, T K, T X, COLOR col) { y = B + K * X; b = B, k = K, x = X; color = col; }
+
+template <class T, typename COLOR>
+void Line_color_out<T, COLOR>::show() {
+    cout << "b = " << b << "; k = " << k << "; x = " << x << "; Цвет закраски: " << switch_color(color) << endl;
 }
 
-double Mult() {
-    double pi = 3.145546;
-    return pi;
-}
+template <class T, typename COLOR>
+T Line_color_out<T, COLOR>::getB() { return b; }
 
-int iSecond = 15;
+template <class T, typename COLOR>
+T Line_color_out<T, COLOR>::getK() { return k; }
 
+template <class T, typename COLOR>
+T Line_color_out<T, COLOR>::getX() { return x; }
 
-void writeTextFile(fstream& DB, Bus* Class_BUS, int size) {
+template <class T, typename COLOR>
+T Line_color_out<T, COLOR>::getY() { return y; }
 
-    DB.open("Moscow.txt", ios_base::out);
-    if (!DB)
-        cout << "Файл открыть невозможно\n";
-
-    // Цикл записи файла
-    for (int i = 0; i < size; i++)
-        // Запись в файл
-        DB << Class_BUS[i].get_num() << '\t' << Class_BUS[i].get_FIO() << endl;
-
-    DB.clear();
-    // Закрытие файла
-    DB.close();
-}
-
-void readTextFile(fstream& DB) {
-    Bus bus_buff;
-
-    DB.open("Moscow.txt", ios_base::in);
-
-    if (!DB.is_open()) {
-        cout << "Файл открыть невозможно\n";
+template <class T, typename COLOR>
+const char* Line_color_out<T, COLOR>::switch_color(COLOR color) {
+    switch (color) {
+        case 0: return "красный"; break;
+        case 1: return "зеленый"; break;
+        case 2: return "синий"; break;
+        default: return "Ошибка! Неверное кодовое наименование!"; break;
     }
-    else {
-        char buff[100];
-        while (!DB.eof()) {
-            DB.getline(buff, 100);
-            cout << buff << endl;
-        }
-    }
-    DB.clear();
-    DB.close(); // Закрытие файла
 }
 
-
-void addTextFile(fstream& DB, Bus* NEW_BUS) {
-    Bus NEW_Moscow[] = {
-            { "Ivanov C. V.", 122 },
-            { "Smirnov C. K.", 565,  },
-            { "Kalashnikov M. M.", 987,  },
-            { "Noutbukin V. M.", 256,  },
-            { "Mishin L. I.", 133,  }
-    };
-
-    DB.open("Moscow.txt", ios_base::out);
-    if (!DB)
-        cout << "Файл открыть невозможно\n";
-
-    int size = sizeof(NEW_Moscow) / sizeof(Bus);
-
-    // Цикл записи файла
-    for (int i = 0; i < size; i++)
-        // Запись в файл
-        DB << NEW_Moscow[i].get_num() << '\t' << NEW_Moscow[i].get_FIO() << endl;
-
-    NEW_BUS = NEW_Moscow;
-
-    DB.clear();
-    // Закрытие файла
-    DB.close();
-}
-
-
-void writeBinFile(fstream& DB, Bus* MoscowB, int size) {
-    DB.open("MoscowB.bin", ios_base::out | ios_base::binary);
-    // Цикл записи файла
-    for (int i = 0; i < size; i++)
-        DB.write((const char*)&MoscowB[i], sizeof(Bus)); // Запись в файл
-    DB.close(); // Закрытие файла
-    DB.clear(); // Сброс предыдущих флагов для объекта DB
-}
-
-void readBinFile(fstream& DB, const char* FileName) {
-    DB.open(FileName, ios_base::in | ios_base::binary);
-    Bus BBsf;
-    // Цикл чтения файла и распечатка
-    while (!DB.eof() && !DB.fail()) {
-        DB.read((char*)&BBsf, sizeof(Bus)); // Чтение из файла
-        if (!DB.eof())
-            cout << BBsf;
-    };
-    DB.close(); // Закрытие файла
-    DB.clear(); // Сброс предыдущих флагов для объекта DB
-}
-
-void addBinFile(fstream& DB, Bus& MoscowB) {
-    Bus NEW_Moscow[] = {
-            { "Ivanov C. V.", 122 },
-            { "Smirnov C. K.", 565,  },
-            { "Kalashnikov M. M.", 987,  },
-            { "Noutbukin V. M.", 256,  },
-            { "Mishin L. I.", 133,  }
-    };
-    int size = sizeof(NEW_Moscow) / sizeof(Bus);
-
-    MoscowB = *NEW_Moscow;
-
-    DB.open("MoscowB.bin", ios_base::out | ios_base::binary);
-    // Цикл записи файла
-    for (int i = 0; i < size; i++)
-        DB.write((const char*)&NEW_Moscow[i], sizeof(Bus)); // Запись в файл
-    DB.close(); // Закрытие файла
-    DB.clear(); // Сброс предыдущих флагов для объекта DB
-}
-
-void readBinFile_N(fstream& DB, int number) {
-    DB.open("MoscowB.bin", ios_base::in);
-    Bus BBsf;
-
-    if ((number <= size_file("MoscowB.bin")) && (number >= 0)) {
-        DB.seekg(sizeof(Bus) * (number - 1), ios_base::beg);
-        DB.read((char*)&BBsf, sizeof(Bus));
-        cout << BBsf;
-    }
-    else {
-        cout << "Ошибка! Нет такого пункта!" << endl;
-    }
-    DB.close(); // Закрытие файла
-    DB.clear();
-}
-
-void createNewFile(fstream& DB2) {
-    fstream DB;
-    DB.open("MoscowB.bin", ios_base::in | ios_base::binary);
-    DB2.open("LR2.bin", ios_base::out | ios_base::binary);
-
-    int size = size_file("MoscowB.bin");
-
-    // Размер массиива для четных записей
-    int chet_value = (size / 2) + 1;
-
-    // Размер массиива для нечетных записей
-    //int nechet_value = size / 2;
-
-    Bus BBsf;
-    Bus* new_bus = new Bus[chet_value];
-    //Bus new_bus;
-    int i = 1, count = 0;
-
-    // Цикл чтения файла и распечатка
-    while (!DB.eof() && !DB.fail()) {
-        DB.read((char*)&BBsf, sizeof(Bus)); // Чтение из файла
-        if (!DB.eof()) {
-            if ((i == 1) || (i % 2 == 1)) {
-                new_bus[count] = BBsf;
-                //cout << BBsf;
-                //cout << new_bus[i];
-                count++;
-                //cout << new_bus[i];
-            }
-            i++;
-        }
-    };
-
-    for (int i = 0; i < chet_value; i++) {
-        DB2.write((const char*)&new_bus[i], sizeof(Bus)); // Запись в файл
-    }
-
-    DB.close(); // Закрытие файла
-    DB.clear(); // Сброс предыдущих флагов для объекта DB
-
-    DB2.close(); // Закрытие файла
-    DB2.clear(); // Сброс предыдущих флагов для объекта DB
-}
-
-int size_file(const char* FileName) {
-    int begin, end;
-
-    ifstream myfile(FileName);
-
-    begin = myfile.tellg();
-    myfile.seekg(0, ios::end);
-    end = myfile.tellg();
-
-    myfile.close();
-
-    int size = (end - begin) / sizeof(Bus);
-    //cout << "size: " << size << endl;
-
-    return size;
-}
