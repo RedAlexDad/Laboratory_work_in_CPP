@@ -20,13 +20,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2158e0d3-1817-4f3b-bbf0-2fb421e36dd7" name="Changes" comment="Первое задание &quot;структура&quot;">
+    <list default="true" id="2158e0d3-1817-4f3b-bbf0-2fb421e36dd7" name="Changes" comment="Первое задание &quot;функция&quot; добавлено">
+      <change afterPath="$PROJECT_DIR$/worker.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-207031d257fae458119e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-11-19T12-35-30-0483.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Programming_on_class_and_template-Debug-ad7cdff063a0840fca7b.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Programming_on_class_and_template.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Programming_on_class_and_template.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +54,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="exercise_1_struct" />
+        <entry key="$PROJECT_DIR$" value="exercise_1_function" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,6 +88,11 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Clion\Laboratory_work_in_CPP" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Programming_on_class_and_template" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Programming_on_class_and_template" RUN_TARGET_NAME="Programming_on_class_and_template" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
@@ -148,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668861410277</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Первое задание &quot;функция&quot; добавлено">
+      <created>1668861597863</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668861597863</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +190,7 @@
     <MESSAGE value="Первое задание подправлено" />
     <MESSAGE value="Первое задание по строками добавлено" />
     <MESSAGE value="Первое задание &quot;структура&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Первое задание &quot;структура&quot;" />
+    <MESSAGE value="Первое задание &quot;функция&quot; добавлено" />
+    <option name="LAST_COMMIT_MESSAGE" value="Первое задание &quot;функция&quot; добавлено" />
   </component>
 </project>
