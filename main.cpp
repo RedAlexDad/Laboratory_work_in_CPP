@@ -1,30 +1,23 @@
-// LAB_07_Virtual_function.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+
 #include "Header.h"
 #pragma warning(disable : 4996)
 
 using namespace std;
 
-// Счетчик для идентификатора
-int Abstract::count = 0;
+int main() {
 
-int main()
-{
+    system("chcp 1251 > null");
+    cout << "Лабораторная работа № 8\n Папин А.В., ИУ5Ц-41Б \n Вариант № 4\n\n";
 
-    system("chcp 65001");
-    cout << "Лабораторная работа № 7\n Папин А.В., ИУ5Ц-41Б \n Вариант № 4\n\n";
-
-    cout << "№1.	2.1.2.	Проверка описания объекта абстрактного класса" << endl;
-    cout << "№2.	2.1.3.	Проверка созданных классов – описание объектов" << endl;
-    cout << "№3.	2.1.4.	Проверка вызова функции через объекты" << endl;
-    cout << "№4.	2.1.5.	Проверка вызова функции через указатель на объект" << endl;
-    cout << "№5.	2.1.6.	Проверка виртуального вызова функции " << endl;
-    cout << "№6.	2.1.7.	Создать динамический массив указателей на абстрактный базовый класс" << endl;
-    cout << "№7.	2.1.8.	Распечатка массива объектов с помощью виртуального вызова" << endl;
-    cout << "№8.	2.1.9.	Виртуальные деструкторы " << endl;
-    cout << "№9.	2.1.10.	Виртуальные классы(по своему варианту)" << endl;
+    cout << "№1.	Перестановка буквы первого слова и последнего слова" << endl;
+    cout << "№2.	Переписать в другую переменную только цифры" << endl;
+    cout << "№3.	Записать в другой файл содержимое исходного файла, удалив лишние пробелы" << endl;
+    cout << "№4.	Работа с векторами" << endl;
+    cout << "№5.	Составить описание класса Complex для представления комплексных чисел" << endl;
     cout << "№0.	Выход с программы" << endl;
 
     int sw;
@@ -34,265 +27,212 @@ int main()
 
     switch (sw)
     {
-        case 1: {
+        case 1:
+        {
             system("cls");
-            /*ПРОВЕРКА ОБЪЕКТОВ АБСТРАКТНОГО КЛАССА.
-            Проверить в главной программе описание объектов для абстрактного класса. */
-            cout << "№1.	2.1.2.	Проверка описания объекта абстрактного класса" << endl;
-            cout << "Проверяем вызова абстрактнного класса для всех классов" << endl;
+            /*Пользователь вводит текст. Переставить в нем первую букву первого слова
+            и первую букву последнего слова (сначала найти номер последнего пробела). */
+            cout << "№1.	Перестановка буквы первого слова и последнего слова" << endl;
 
-            // a = (3, 2); b = (10, 2); c = (6, 7);
-            cout << "Координат" << endl;
-            coordinate C1(3, 2, 10, 2, 6, 7);
-            //cout << C1 << endl;
-            C1.show();
-            cout << endl;
+            string str1, str2;
 
+            cout << "Введите любое первое слово" << endl;
+            cin.ignore();
+            getline(cin, str1, '\n');
+            cout << "Введите любое второе слово" << endl;
+            //cin.ignore(); - удаляет первый символ после введения пользователем (str2)
+            getline(cin, str2, '\n');
 
-            cout << "Линии" << endl;
-            // Координаты отрезка и выводит длину отрезка
-            segment S1(7, 0, 3, 5, 4, -5);
-            //cout << S1 << endl;
-            S1.show();
-            cout << endl;
+            int num1 = 0, num2 = 0;
 
-            cout << "Линии" << endl;
-            // Длина отрезка
-            segment S2(4, 3, 5);
-            //cout << S2 << endl;
-            S2.show();
-            cout << endl;
-
-            cout << "Площадь треугольника" << endl;
-            // Площадь треугольника
-            triangle T1(4, 5, 4);
-            //cout << T1 << endl;
-            T1.show();
-            cout << endl;
-
-            triangle T2(4, 5, 4, 6,1,6);
-            //cout << T1 << endl;
-            T2.show();
-            cout << endl;
-
-            break;
-        }
-        case 2: {
-            system("cls");
-            cout << "№2.	2.1.3.	Проверка созданных классов – описание объектов" << endl;
-
-            // Создадим объект абстрактного класса
-            Abstract* pointer_ABS = nullptr;
-
-            // a = (3, 2); b = (10, 2); c = (6, 7);
-            coordinate C1(3, 2, 10, 2, 6, 7);
-            // Длина отрезка
-            segment S1(4, 3, 5);
-            // Площадь треугольника
-            triangle T1(4, 5, 4);
-
-            break;
-        }
-        case 3: {
-            system("cls");
-            cout << "№3.	2.1.4.	Проверка вызова функции через объекты" << endl;
-
-            // a = (3, 2); b = (10, 2); c = (6, 7);
-            coordinate C1(3, 2, 10, 2, 6, 7);
-            // Длина отрезка
-            segment S1(4, 3, 5);
-            // Площадь треугольника
-            triangle T1(4, 5, 4);
-
-            C1.show();
-            S1.show();
-            T1.show();
-
-            break;
-        }
-        case 4: {
-            system("cls");
-            cout << "№4.	2.1.5.	Проверка вызова функции через указатель на объект" << endl;
-
-            // a = (3, 2); b = (10, 2); c = (6, 7);
-            coordinate C1(3, 2, 10, 2, 6, 7);
-            // Длина отрезка
-            segment S1(4, 3, 5);
-            // Площадь треугольника
-            triangle T1(4, 5, 4);
-
-            C1.show();
-            S1.show();
-            T1.show();
-
-            coordinate* pointer_C1 = &C1;
-            segment* pointer_S1 = &S1;
-            triangle* pointer_T1 = &T1;
-
-
-            // Проверка объекта класса через указателя
-            pointer_C1->show();
-
-            pointer_S1->show();
-
-            pointer_T1->show();
-
-            break;
-        }
-        case 5: {
-            system("cls");
-            cout << "№5.	2.1.6.	Проверка виртуального вызова функции " << endl;
-
-            // Создадим объект абстрактного класса
-            Abstract* pointer_ABS = nullptr;
-
-            // a = (3, 2); b = (10, 2); c = (6, 7);
-            coordinate C1(3, 2, 10, 2, 6, 7);
-            // Длина отрезка
-            segment S1(4, 3, 5);
-            // Площадь треугольника
-            triangle T1(4, 5, 4);
-
-            C1.show();
-            S1.show();
-            T1.show();
-
-            coordinate* pointer_C1 = &C1;
-            segment* pointer_S1 = &S1;
-            triangle* pointer_T1 = &T1;
-
-
-            // Проверка объекта класса через указателя
-            pointer_C1->show();
-
-            pointer_S1->show();
-
-            pointer_T1->show();
-
-            // Проверка абстрактного класса через указателя
-            pointer_ABS = &C1;
-            pointer_ABS->show();
-
-            pointer_ABS = &S1;
-            pointer_ABS->show();
-
-            pointer_ABS = &T1;
-            pointer_ABS->show();
-
-            break;
-        }
-        case 6: {
-            system("cls");
-            cout << "№6.	2.1.7.	Создать динамический массив указателей на абстрактный базовый класс" << endl;
-
-            // Создание массива абстрактного класса
-            Abstract** Abstr = new Abstract*[6];
-
-            Abstr[0] = new coordinate(1,2,3,4,5,6);
-            Abstr[1] = new segment(9,8,7,6,5,4);
-            Abstr[2] = new triangle(4,5,6);
-
-            Abstr[3] = new coordinate(9,7,6,5,4,3);
-            Abstr[4] = new segment(1,2,3,4,5,6);
-            Abstr[5] = new triangle(6,8,9);
-
-            delete[] Abstr;
-
-            break;
-        }
-        case 7: {
-            system("cls");
-            cout << "№7.	2.1.8.	Распечатка массива объектов с помощью виртуального вызова" << endl;
-
-            // Создание массива абстрактного класса
-            Abstract** Abstr = new Abstract * [6];
-
-            Abstr[0] = new coordinate(1, 2, 3, 4, 5, 6);
-            Abstr[1] = new segment(9, 8, 7, 6, 5, 4);
-            Abstr[2] = new triangle(4, 5, 6);
-
-            Abstr[3] = new coordinate(9, 7, 6, 5, 4, 3);
-            Abstr[4] = new segment(1, 2, 3, 4, 5, 6);
-            Abstr[5] = new triangle(6, 8, 9);
-
-            for (int i = 0; i < 6; i++) {
-                Abstr[i]->show();
-                cout << endl;
-            }
-
-            delete[] Abstr;
-
-            break;
-        }
-        case 8: {
-            system("cls");
-            cout << "№8.	2.1.9.	Виртуальные деструкторы " << endl;
-
-            // Создание массива абстрактного класса
-            Abstract** Abstr = new Abstract * [6];
-
-            Abstr[0] = new coordinate(1, 2, 3, 4, 5, 6);
-            Abstr[1] = new segment(9, 8, 7, 6, 5, 4);
-            Abstr[2] = new triangle(4, 5, 6);
-
-            Abstr[3] = new coordinate(9, 7, 6, 5, 4, 3);
-            Abstr[4] = new segment(1, 2, 3, 4, 5, 6);
-            Abstr[5] = new triangle(6, 8, 9);
-
-            for (int i = 0; i < 6; i++) {
-                Abstr[i]->show();
-                cout << endl;
-            }
-
-            // Прерывает цикл
-            bool check = false;
-
-            while (check == false) {
-                for (int i = 0; i < 6; i++) {
-                    delete Abstr[i];
-                    cout << endl;
+            // Проверка для первой строки
+            for (int i = 0; i < str1.size(); i++) {
+                if (str1[i] != ' ') {
+                    num1 = i;
+                    break;
                 }
-                check = true;
             }
+
+            // Проверка для второй строки
+            for (int i = 0; i < str2.size(); i++) {
+                if (str2[i] != ' ') {
+                    num2 = i;
+                    break;
+                }
+            }
+
+            // Перестановка букв местами
+            char tmp = str1[num1];
+            str1[num1] = str2[num2];
+            str2[num2] = tmp;
+
+            // Вывод
+            cout << "Первое слово:  " << str1 << endl;
+            cout << "Второе слово:  " << str2 << endl;
+
 
             break;
         }
-        case 9: {
+        case 2:
+        {
             system("cls");
-            cout << "№9.	2.1.10.	Виртуальные классы(по своему варианту)" << endl;
+            /*Пользователь вводит некоторый текст. Переписать в другую переменную только цифры.*/
+            cout << "№2.	Переписать в другую переменную только цифры" << endl;
 
-            // ПЕРЕДЕЛАТЬ ЭТОТ ПУНКТ
-            // A,F,C,D
-            // A - Общие алфавиты, F - Французские алфавиты, C - Латинские алфавиты, D - Древнегреческие алфавиты
-            A** ALPHAVIT = new A* [5];
+            string str1, str2;
 
-            ALPHAVIT[0] = new A('A');
-            ALPHAVIT[1] = new F('V','E'); // ɛ
-            ALPHAVIT[2] = new C('E','Y'); // ī
-            ALPHAVIT[3] = new D('U','I', 'H', 'M'); // δ
-            ALPHAVIT[4] = new D('P','O', 'Q', 'J'); // γ
+            cout << "Введите любое слово" << endl;
+            cin.ignore();
+            getline(cin, str1, '\n');
 
-            for (int i = 0; i < 5; i++) {
-                ALPHAVIT[i]->show();
+            for (int i = 0; i < str1.size(); i++) {
+                if ((str1[i] >= '0') && (str1[i] <= '9'))
+                    str2 += str1[i];
             }
 
-            D ALPHAVIT_D('Q','W','E','R');
+            cout << "Новая строка, являющаяся только числа:" << endl << str2 << endl;
 
-            // A F C D
+            break;
+        }
+        case 3:
+        {
+            system("cls");
+            /*Для тестирования программы создать текстовый файл в любом редакторе (например, в блокноте)
+            для тестирования программы и поместить его в каталог проекта. Написать программу,
+            согласно варианту (вариант определяется по списку преподавателя).
+            Оформить обработку строки в виде функции. Произвести обработку каждой строки исходного файла,
+            используя полученную функцию.
+            Полученный результат вывести на экран.
 
-            cout << "ALPHAVIT_D.get_alphavit() = " << ALPHAVIT_D.get_alphavit() << endl;//Обращение к полю а класса (А3)как обычно в классе D3
+            Дан текстовый файл.  Запишите в другой файл содержимое исходного файла, удалив лишние пробелы.*/
+            cout << "№3.	Записать в другой файл содержимое исходного файла, удалив лишние пробелы" << endl;
+
+            string str;
+            cout << "Введите любое предложение" << endl;
+            cin.ignore();
+            getline(cin, str, '\n');
+
+            fstream DB;
+
+            // Удаление всех пробелов
+            //writeTextFile_delete_all_space(DB, str);
+
+            // Удаление некотрых пробелов за исключением пробел, который находится между слов
+            writeTextFile_delete_some_space(DB, str);
+
+
+            break;
+        }
+        case 4:
+        {
+            system("cls");
+            /*Создать вектор из 5-ти целых случайных чисел (0 - 100).
+            Распечатать. Удвоить каждое число в векторе. Распечатать.
+            Удалить из вектора элемент с индексом 2 и снова распечатать вектор.
+            Переделать программу: удвоение сделать с помощью функции и печатать вектор с помощью функции.*/
+            cout << "№4.	Работа с векторами" << endl;
+
+            vector<int> v;
+            // Устанавливает размер вектора
+            v.resize(5);
+
+            cout << "Размер вектора: " << v.size() << endl;
+
+            for (int i = 0; i < v.size(); i++) {
+                v[i] = rand() % 101;
+            }
+
+            // Печать
+            print_vector(v, v.size());
+
+            // Удвоение вектора
+            cout << "Удвоение вектора:" << endl;
+            v = vector_doubling(v, v.size());
+
+            // Печать
+            print_vector(v, v.size());
+
+            /*
+            for (int i = 0; i < v.size(); i++) {
+                //v.push_back(rand() % 101);
+                v[i] = rand() % 101;
+                cout << "v [ " << i << " ] : " << v[i] << endl;
+            }
             cout << endl;
-            cout << "ALPHAVIT_D.A::get_alphavit() = " << ALPHAVIT_D.A::get_alphavit() << endl;  // Через класс  A прямо
-            cout << "ALPHAVIT_D.F::get_alphavit() = " << ALPHAVIT_D.F::get_alphavit() << endl;  // Через класс  F прямо
-            cout << "ALPHAVIT_D.C::get_alphavit() = " << ALPHAVIT_D.C::get_alphavit() << endl;  // Через класс  C прямо
-            cout << "ALPHAVIT_D.D::get_alphavit()= "  << ALPHAVIT_D.D::get_alphavit() << endl;  // Через класс  D прямо
+
+
+            cout << "Удвоение вектора:" << endl;
+            for (int i = 0; i < v.size(); i++) {
+                v[i] = v[i] * 2;
+                cout << "v [ " << i << " ] : " << v[i] << endl;
+            }
             cout << endl;
-            cout << "ALPHAVIT_D.get_franc_al() = " << ALPHAVIT_D.get_franc_al() << endl;
-            cout << "ALPHAVIT_D.get_latin_al() = " << ALPHAVIT_D.get_latin_al() << endl;
-            cout << "ALPHAVIT_D.get_old_grec_al() = " << ALPHAVIT_D.get_old_grec_al() << endl;
+            */
+
+            // Указывает на второй элемент, т.е. v.begin() - начало, т.е. 0.
+            cout << "Удаление второго элемента вектора:" << endl;
+            v.erase(v.begin() + 2);
+
+            cout << "Размер после удаления: " << v.size() << endl << endl;
 
 
-            delete[] ALPHAVIT;
+            cout << "Векторы после удаления:" << endl;
+            for (int i = 0; i < v.size(); i++) {
+                cout << "v [ " << i << " ] : " << v[i] << endl;
+            }
+            cout << endl;
+
+
+
+
+            break;
+        }
+        case 5:
+        {
+            system("cls");
+            /*Составить описание класса Complex для представления комплексных чисел с возможностью
+            задания вещественной и мнимой частей числами типа double.
+            В программе создать вектор из объектов класса Complex (6 элементов):
+            (-1.2, 6.3), (4.0, 0.7), (7.2, -0.8), (5.3, 3.0), (-4.9, 6.6), (-9.3, 0.2).
+
+                Распечатать вектор в виде:
+                -1.2 + i * 6.3
+                 4.1 + i * 0.7
+                 7.2 - i * 0.8
+                 5.3 + i * 3
+                -4.9 + i * 6.6
+                -9.3 + i * 0.2
+
+                Сложите все числа (у комплексных чисел отдельно складываются действительные и мнимые части)
+                и результирующее число выведите на экран.*/
+            cout << "№5.	Составить описание класса Complex для представления комплексных чисел" << endl;
+
+            vector<Complex> complex = {
+                    Complex(-1.2, 6.3),
+                    Complex(4.1, 0.7),
+                    Complex(7.2, 0.8),
+                    Complex(5.3, 3),
+                    Complex(-4.9, 6.6),
+                    Complex(-9.3, 0.2),
+            };
+
+            cout << "Комплексные числа: " << endl;
+            for (int i = 0; i < complex.size(); i++) {
+                cout << complex[i] << endl;
+            }
+
+            // Сложение всех комплексных чисел
+            Complex sum;
+            cout << "Сложение комплексных чисел: " << endl;
+            for (int i = 0; i < complex.size(); i++) {
+                sum = sum + complex[i];
+            }
+
+            cout << "Результат: " << endl;
+            cout << sum << endl;
+
+            //cout << complex[0] << " + " << complex[1] << endl;
+            //cout << complex[0] + complex[1] << endl;
 
             break;
         }

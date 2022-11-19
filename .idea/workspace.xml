@@ -20,16 +20,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2158e0d3-1817-4f3b-bbf0-2fb421e36dd7" name="Changes" comment="Шестое задание &quot;Шаблон классов и функций&quot; добавлено">
+    <list default="true" id="2158e0d3-1817-4f3b-bbf0-2fb421e36dd7" name="Changes" comment="Седьмое задание &quot;Наследование и виртуальные функции&quot; добавлено">
+      <change afterPath="$PROJECT_DIR$/Second.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Header.h" beforeDir="false" afterPath="$PROJECT_DIR$/Header.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Second.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-721991f805af4e4844ae.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-11-19T13-34-15-0817.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Programming_on_class_and_template-Debug-a85ccd7443104bad6e2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-5a4336ad098710543aa0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-11-19T13-40-14-0590.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Programming_on_class_and_template-Debug-83847895af390b2ec9ba.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/Second.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/Second.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Programming_on_class_and_template.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Programming_on_class_and_template.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
@@ -55,7 +56,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="exercise_6_template_class_and_function" />
+        <entry key="$PROJECT_DIR$" value="exercise_7_Inheritance_virtual_functions" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -196,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668865057184</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Седьмое задание &quot;Наследование и виртуальные функции&quot; добавлено">
+      <created>1668865264997</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668865264997</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +233,7 @@
     <MESSAGE value="Четвертое задание &quot;Перегрузки операций&quot; добавлено" />
     <MESSAGE value="Пятое задание &quot;Поток ввода и вывода и для стандартных объектов CIN и COUT и файлов&quot; добавлено" />
     <MESSAGE value="Шестое задание &quot;Шаблон классов и функций&quot; добавлено" />
-    <option name="LAST_COMMIT_MESSAGE" value="Шестое задание &quot;Шаблон классов и функций&quot; добавлено" />
+    <MESSAGE value="Седьмое задание &quot;Наследование и виртуальные функции&quot; добавлено" />
+    <option name="LAST_COMMIT_MESSAGE" value="Седьмое задание &quot;Наследование и виртуальные функции&quot; добавлено" />
   </component>
 </project>
