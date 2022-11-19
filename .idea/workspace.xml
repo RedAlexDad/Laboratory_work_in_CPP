@@ -20,24 +20,21 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2158e0d3-1817-4f3b-bbf0-2fb421e36dd7" name="Changes" comment="Добавлен РК-3">
-      <change afterPath="$PROJECT_DIR$/Input.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/РК_4_Папин_А.В.docx" afterDir="false" />
+    <list default="true" id="2158e0d3-1817-4f3b-bbf0-2fb421e36dd7" name="Changes" comment="Добавлен РК-4">
+      <change afterPath="$PROJECT_DIR$/Class.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graduate.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graduate.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-b9a1ce74c29c4b246b26.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-11-19T15-34-52-0915.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Programming_on_class_and_template-Debug-bb3b33925312c01708d0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Input.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-fdded9bbeda9bdd149e1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-11-19T15-41-43-0990.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Programming_on_class_and_template-Debug-e0149212a93c2a2fc73f.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Programming_on_class_and_template.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Programming_on_class_and_template.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/null" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/null" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/РК_3_Папин_А.В..docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +55,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="RK_3" />
+        <entry key="$PROJECT_DIR$" value="RK_4" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -251,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668872152189</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Добавлен РК-4">
+      <created>1668872665685</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668872665685</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +291,7 @@
     <MESSAGE value="Добавлен РК-1 &quot;Класс&quot;" />
     <MESSAGE value="Добавлен РК-2 &quot;Перегрузка операции&quot;" />
     <MESSAGE value="Добавлен РК-3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен РК-3" />
+    <MESSAGE value="Добавлен РК-4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен РК-4" />
   </component>
 </project>
