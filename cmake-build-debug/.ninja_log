@@ -1,8 +1,13 @@
 # ninja log v5
 4	307	6905669653352105	CMakeFiles/Programming_on_class_and_template.dir/Rect.cpp.obj	7681f145f6517233
-6	325	6905681864670521	CMakeFiles/Programming_on_class_and_template.dir/Second.cpp.obj	b579abec39c09469
-2	391	6905684344022164	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
-392	473	6905684344812277	Programming_on_class_and_template.exe	98e42b1f93c7c172
 2	398	6905685539527460	CMakeFiles/Programming_on_class_and_template.dir/Second.cpp.obj	b579abec39c09469
 5	498	6905685540517456	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
 498	583	6905685541347395	Programming_on_class_and_template.exe	b509e4010c0f733e
+2	378	6905743656233864	CMakeFiles/Programming_on_class_and_template.dir/MySet.cpp.obj	de0297973ace09e8
+12	380	6905743656243854	CMakeFiles/Programming_on_class_and_template.dir/MyStack.cpp.obj	5be301f25b736b5e
+6	384	6905743656293857	CMakeFiles/Programming_on_class_and_template.dir/MyVector.cpp.obj	2425acd3a308c914
+9	579	6905743658243844	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
+579	704	6905743659463846	Programming_on_class_and_template.exe	c8018d1d28a38561
+6	304	6905745271413158	CMakeFiles/Programming_on_class_and_template.dir/MyStack.cpp.obj	5be301f25b736b5e
+2	455	6905745272923132	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
+455	546	6905745273793237	Programming_on_class_and_template.exe	c8018d1d28a38561
