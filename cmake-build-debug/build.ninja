@@ -55,12 +55,6 @@ build CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj: CXX_COMPILE
   OBJECT_DIR = CMakeFiles\Programming_on_class_and_template.dir
   OBJECT_FILE_DIR = CMakeFiles\Programming_on_class_and_template.dir
 
-build CMakeFiles/Programming_on_class_and_template.dir/Graduate.cpp.obj: CXX_COMPILER__Programming_on_class_and_template_Debug D$:/Clion/Laboratory_work_in_CPP/Graduate.cpp || cmake_object_order_depends_target_Programming_on_class_and_template
-  DEP_FILE = CMakeFiles\Programming_on_class_and_template.dir\Graduate.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles\Programming_on_class_and_template.dir
-  OBJECT_FILE_DIR = CMakeFiles\Programming_on_class_and_template.dir
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Programming_on_class_and_template
@@ -69,7 +63,7 @@ build CMakeFiles/Programming_on_class_and_template.dir/Graduate.cpp.obj: CXX_COM
 #############################################
 # Link the executable Programming_on_class_and_template.exe
 
-build Programming_on_class_and_template.exe: CXX_EXECUTABLE_LINKER__Programming_on_class_and_template_Debug CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj CMakeFiles/Programming_on_class_and_template.dir/Graduate.cpp.obj
+build Programming_on_class_and_template.exe: CXX_EXECUTABLE_LINKER__Programming_on_class_and_template_Debug CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Programming_on_class_and_template.dir

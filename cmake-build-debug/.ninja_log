@@ -2,11 +2,11 @@
 3	268	6905749336866942	CMakeFiles/Programming_on_class_and_template.dir/Rect.cpp.obj	f289cdd893fc34ac
 2	398	6905685539527460	CMakeFiles/Programming_on_class_and_template.dir/Second.cpp.obj	b579abec39c09469
 6	304	6905745271413158	CMakeFiles/Programming_on_class_and_template.dir/MyStack.cpp.obj	5be301f25b736b5e
-3	274	6905749639716828	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
-274	347	6905749640406659	Programming_on_class_and_template.exe	40588596ca9d349f
+2	313	6905755562474695	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
+283	354	6905753294839582	Programming_on_class_and_template.exe	ca27d2a3d291d97a
 2	378	6905743656233864	CMakeFiles/Programming_on_class_and_template.dir/MySet.cpp.obj	de0297973ace09e8
 6	384	6905743656293857	CMakeFiles/Programming_on_class_and_template.dir/MyVector.cpp.obj	2425acd3a308c914
 1	271	6905748366788463	CMakeFiles/Programming_on_class_and_template.dir/Complex.cpp.obj	af42eb25424bf38c
 2	279	6905753294129428	CMakeFiles/Programming_on_class_and_template.dir/Graduate.cpp.obj	c776418f04c35f2c
-5	283	6905753294159364	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
-283	354	6905753294839582	Programming_on_class_and_template.exe	ca27d2a3d291d97a
+2	284	6905757358616389	CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj	f20ef931e6c68ccd
+284	354	6905757359286485	Programming_on_class_and_template.exe	98e42b1f93c7c172

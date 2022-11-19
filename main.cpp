@@ -1,8 +1,8 @@
-// RK_13.05.22.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+// RK_Template_17.05.2022.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
-#include "Graduate.h"
+#include "Input.h"
 #pragma warning(disable : 4996)
 
 using namespace std;
@@ -11,34 +11,33 @@ int main()
 {
     system("chcp 65001");
 
-    cout << "Выпускники:" << endl;
-    Graduate FN1[5];
+    // Задание №1
+    const int size = 5;
 
-    FN1[0] = { "Иванов В.В.", 5, 4, 6, 2005 };
-    FN1[1] = { "Игнатьев А.И.", 4, 2, 6, 1997 };
-    FN1[2] = { "Свидиров И.И.", 3, 1, 7, 1998 };
-    FN1[3] = { "Дмитреев А.И.", 4, 4, 6, 1985 };
-    FN1[4] = { "Тестов Т.Г.", 3, 7, 3, 2012 };
+    int arr_int[size] = { 1, -5, 6, -1, 5 };
+    show_arr<int, size>(arr_int);
+    cout << "Количество отрицательных чисел: " << count_otr_value<int, size>(arr_int) << endl;
 
-    //FN1[0] = { "TEST", 1, 4, 6, 6 };
-    //cout << FN1[0] << endl;
+    double arr_double[size] = { 1.13, -123.5, -6.87, -8.2341, 7.35 };
+    show_arr<double, size>(arr_double);
+    cout << "Количество отрицательных чисел: " << count_otr_value<double, size>(arr_double) << endl;
 
+    float arr_float[size] = { 1.15, -5.123, 26.88, 1.12, 5.771 };
+    show_arr<float, size>(arr_float);
+    cout << "Количество отрицательных чисел: " << count_otr_value<float, size>(arr_float) << endl;
 
-    for (int i = 0; i < 5; i++) {
-        cout << FN1[i] << endl;
-    }
+    // Задание №2
 
-    // Изменение имена
-    cout << "Был (Изменение имена): " << endl;
-    cout << FN1[0] << endl;
-    FN1[0].setName("Интернетов А.А.");
-    cout << "Стало (Изменение имена): " << endl;
-    cout << FN1[0] << endl;
+    Input<int> ob();
 
-    cout << "Был (РЕЙТИНГ): " << endl;
-    cout << FN1[0] << endl;
-    // Увеличение рейтинга
-    FN1[0] += 3;
-    cout << "Стало: " << endl << FN1[0] << endl;
+    char str[] = {"Строка_приглашение целочисленного типа"};
+    Input<int> ob1(str, 0, 1);
+    cout << ob1 << endl;
+
+    Input<double> ob2("Строка_приглашение double типа", 3.1416, 3.654);
+    cout << ob2 << endl;
+
+    Input<float> ob3("Строка_приглашение float типа", 543.12, 16.3);
+    cout << ob2 << endl;
 
 }
