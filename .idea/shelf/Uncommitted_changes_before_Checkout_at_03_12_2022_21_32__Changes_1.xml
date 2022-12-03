@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_03_12_2022_21_32_[Changes]1" date="1670092346967" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_12_2022_21_32_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 03.12.2022 21:32 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/Programming_on_class_and_template.exe" />
+    <option name="AFTER_PATH" value="cmake-build-debug/Programming_on_class_and_template.exe" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_12_2022_21_32_[Changes]1/Programming_on_class_and_template.exe" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/Programming_on_class_and_template.dir/main.cpp.obj" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_12_2022_21_32_[Changes]1/main.cpp.obj" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/.ninja_deps" />
+    <option name="AFTER_PATH" value="cmake-build-debug/.ninja_deps" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_12_2022_21_32_[Changes]1/.ninja_deps" />
+  </binary>
+</changelist>
